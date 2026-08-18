@@ -1382,6 +1382,183 @@ body.on-dark .tab.active {
   color: var(--fx-ink-soft);
 }
 
+
+.book-illust {
+  margin-top: 1.15rem;
+  display: grid;
+  grid-template-columns: 0.78fr 1.32fr;
+  gap: 0.9rem;
+  align-items: stretch;
+}
+.book-illust .doors {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-top: 0;
+}
+.book-illust .door { min-height: 0; padding: 0.95rem 1rem 1rem; }
+.daycal {
+  border: 1px solid var(--fx-line);
+  border-radius: 14px;
+  overflow: hidden;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+}
+.daycal-h {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.8rem;
+  padding: 0.65rem 0.9rem 0.55rem;
+  background: var(--fx-dark);
+  color: #fff;
+}
+.daycal-h .who { font-family: var(--fx-display); font-size: 1.15rem; color: var(--fx-lime); letter-spacing: -0.02em; }
+.daycal-h .when { font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: #a8aaaa; }
+.daycal-days {
+  display: flex;
+  gap: 0.3rem;
+  padding: 0.45rem 0.7rem;
+  background: var(--fx-beige);
+}
+.daycal-days span {
+  flex: 1;
+  text-align: center;
+  font-size: 0.68rem;
+  padding: 0.28rem 0.15rem;
+  border-radius: 8px;
+  color: var(--fx-mute);
+}
+.daycal-days span b { display: block; font-family: var(--fx-display); font-size: 0.95rem; font-weight: 400; color: var(--fx-ink); }
+.daycal-days span.is-on { background: var(--fx-dark); color: var(--fx-lime); }
+.daycal-days span.is-on b { color: var(--fx-lime); }
+.day-hours { flex: 1; }
+.hr {
+  display: grid;
+  grid-template-columns: 3.6rem 1fr;
+  border-top: 1px solid var(--fx-line);
+  min-height: 1.85rem;
+}
+.hr .tm {
+  font-size: 0.68rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--fx-mute);
+  padding: 0.32rem 0.65rem;
+}
+.hr .slot { padding: 0.18rem 0.4rem 0.18rem 0; }
+.hr .slot i {
+  display: block;
+  font-style: normal;
+  border-radius: 7px;
+  padding: 0.22rem 0.5rem;
+  font-size: 0.78rem;
+  line-height: 1.25;
+  color: var(--fx-mute);
+}
+.hr .slot i b { font-weight: 400; color: var(--fx-ink); font-family: var(--fx-display); font-size: 0.88rem; margin-right: 0.35rem; }
+.hr .slot i.busy { background: var(--fx-beige); color: var(--fx-ink-soft); }
+.hr .slot i.now { background: var(--fx-dark); color: var(--fx-lime); }
+.hr .slot i.now b { color: var(--fx-lime); }
+.hr .slot i.free { box-shadow: inset 0 0 0 1px var(--fx-line); }
+
+.d-screen.d-crm { padding: 0; overflow: auto; max-height: 430px; }
+.crm-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.65rem 0.9rem;
+  background: var(--fx-dark);
+  color: #fff;
+}
+.crm-bar .who { font-family: var(--fx-display); font-size: 1.1rem; color: var(--fx-lime); }
+.crm-bar .meta { font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; color: #a8aaaa; }
+.crm-tools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 0.8rem;
+  background: var(--fx-beige);
+  border-bottom: 1px solid var(--fx-line);
+}
+.crm-search {
+  flex: 1;
+  min-width: 10rem;
+  font-size: 0.82rem;
+  padding: 0.4rem 0.7rem;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: inset 0 0 0 1px var(--fx-line);
+  color: var(--fx-ink);
+}
+.crm-search::placeholder { color: var(--fx-mute); }
+.crm-chip {
+  font-size: 0.72rem;
+  padding: 0.32rem 0.65rem;
+  border-radius: 999px;
+  background: #fff;
+  color: var(--fx-ink);
+  box-shadow: inset 0 0 0 1px var(--fx-line);
+}
+.crm-chip:hover { background: var(--fx-rail); }
+.crm-chip.is-on { background: var(--fx-dark); color: var(--fx-lime); box-shadow: none; }
+.crm-tbl-wrap { overflow-x: auto; }
+.crm-tbl {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+}
+.crm-tbl th {
+  text-align: left;
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fx-mute);
+  font-weight: 400;
+  padding: 0.45rem 0.7rem;
+  border-bottom: 1px solid var(--fx-line);
+  background: var(--fx-rail);
+}
+.crm-tbl td {
+  padding: 0.52rem 0.7rem;
+  border-bottom: 1px solid var(--fx-line);
+  color: var(--fx-ink-soft);
+  vertical-align: middle;
+}
+.crm-tbl td.nm {
+  font-family: var(--fx-display);
+  font-size: 0.95rem;
+  color: var(--fx-ink);
+  letter-spacing: -0.015em;
+}
+.crm-tbl tr:hover td { background: #faf8f4; }
+.crm-tbl tr.is-now td { background: var(--fx-beige); }
+.st {
+  display: inline-block;
+  font-size: 0.68rem;
+  padding: 0.12rem 0.45rem;
+  border-radius: 999px;
+  background: var(--fx-rail);
+  color: var(--fx-ink);
+}
+.st.msg { background: var(--fx-dark); color: var(--fx-lime); }
+.st.due { background: #f3e0c8; color: var(--fx-ink); }
+.st.quiet { background: #fff; box-shadow: inset 0 0 0 1px var(--fx-line); }
+.st.end { background: var(--fx-ink); color: #fff; }
+.crm-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0.8rem 0.65rem;
+  font-size: 0.72rem;
+  color: var(--fx-mute);
+}
+@media (max-width: 900px) {
+  .book-illust { grid-template-columns: 1fr; }
+}
+
 .eyebrow .chip { margin-left: 0.55rem; text-transform: none; letter-spacing: 0; vertical-align: 1px; }
 .fig { margin-top: 1.55rem; }
 .flow {
@@ -2157,44 +2334,88 @@ body.on-dark .tab.active {
               </div>
             </div>
 
-            <div class="d-screen" data-demo="6">
-              <div class="d-work-h">
-                <div>
-                  <p class="k">Klinikk · Dr. Svanevik</p>
-                  <p class="t">I dag. Fire åpne.</p>
-                </div>
-                <p class="k">AI minner legen</p>
+            <div class="d-screen d-crm" data-demo="6">
+              <div class="crm-bar">
+                <p class="who">Klinikk</p>
+                <p class="meta">Dr. Svanevik · Eksempelbedriften AS · 4 åpne</p>
               </div>
-              <p class="d-lede">Listen er relasjonen. Svar. Gjør neste steg. Ta kontakt før de forsvinner.</p>
-              <ul class="d-plist">
-                <li>
-                  <span class="nm">Lars Bjerke</span>
-                  <span class="wk">Uke 14 av 24</span>
-                  <span class="nx">Ubesvart melding om Apo B</span>
-                  <button class="d-act" type="button">Svar</button>
-                </li>
-                <li>
-                  <span class="nm">Marte Holm</span>
-                  <span class="wk">Uke 9</span>
-                  <span class="nx">Neste steg forfalt. Mørklegging.</span>
-                  <button class="d-act soft" type="button">Gjør</button>
-                </li>
-                <li>
-                  <span class="nm">Jonas Lie</span>
-                  <span class="wk">Stille 18 dager</span>
-                  <span class="nx">Relasjonen må vekkes</span>
-                  <button class="d-act line" type="button">Ta kontakt</button>
-                </li>
-                <li>
-                  <span class="nm">Eva Nilsen</span>
-                  <span class="wk">Uke 24 · slutt</span>
-                  <span class="nx">Planen er over. Forny, eller hent inn.</span>
-                  <button class="d-act" type="button">Hent tilbake</button>
-                </li>
-              </ul>
-              <div class="d-actions">
-                <button class="d-btn ghost" type="button" data-demo-go="5">Tilbake</button>
-                <button class="d-btn" type="button" data-demo-go="0">Start på nytt</button>
+              <div class="crm-tools">
+                <input class="crm-search" type="search" placeholder="Søk pasient, avtale, neste steg…" aria-label="Søk">
+                <button class="crm-chip is-on" type="button">Alle</button>
+                <button class="crm-chip" type="button">Melding</button>
+                <button class="crm-chip" type="button">Forfalt</button>
+                <button class="crm-chip" type="button">Stille</button>
+                <button class="crm-chip" type="button">Slutt</button>
+              </div>
+              <div class="crm-tbl-wrap">
+                <table class="crm-tbl">
+                  <thead>
+                    <tr>
+                      <th>Pasient</th>
+                      <th>Plan</th>
+                      <th>Status</th>
+                      <th>Neste</th>
+                      <th>Eier</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="is-now">
+                      <td class="nm">Lars Bjerke</td>
+                      <td>Uke 14 / 24</td>
+                      <td><span class="st msg">Melding</span></td>
+                      <td>Svar på Apo B</td>
+                      <td>Svanevik</td>
+                      <td><button class="d-act" type="button">Svar</button></td>
+                    </tr>
+                    <tr>
+                      <td class="nm">Marte Holm</td>
+                      <td>Uke 9 / 24</td>
+                      <td><span class="st due">Forfalt</span></td>
+                      <td>Mørklegging inn</td>
+                      <td>Svanevik</td>
+                      <td><button class="d-act soft" type="button">Gjør</button></td>
+                    </tr>
+                    <tr>
+                      <td class="nm">Jonas Lie</td>
+                      <td>Uke 11 / 24</td>
+                      <td><span class="st quiet">Stille</span></td>
+                      <td>18 dager uten svar</td>
+                      <td>Svanevik</td>
+                      <td><button class="d-act line" type="button">Ta kontakt</button></td>
+                    </tr>
+                    <tr>
+                      <td class="nm">Eva Nilsen</td>
+                      <td>Uke 24 / 24</td>
+                      <td><span class="st end">Slutt</span></td>
+                      <td>Forny eller hent inn</td>
+                      <td>Svanevik</td>
+                      <td><button class="d-act" type="button">Hent tilbake</button></td>
+                    </tr>
+                    <tr>
+                      <td class="nm">Per Hauge</td>
+                      <td>Uke 3 / 24</td>
+                      <td><span class="st">I rute</span></td>
+                      <td>Samtale 26. aug</td>
+                      <td>Svanevik</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td class="nm">Ida Berg</td>
+                      <td>Uke 6 / 24</td>
+                      <td><span class="st">I rute</span></td>
+                      <td>Blodprøve booket</td>
+                      <td>Svanevik</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="crm-foot">
+                <span>AI minner legen. 4 krever handling av 6 i kohorten.</span>
+                <span>
+                  <button class="d-btn ghost" type="button" data-demo-go="5">Tilbake</button>
+                </span>
               </div>
             </div>
 
@@ -2258,16 +2479,41 @@ body.on-dark .tab.active {
         <p class="eyebrow">Modul A · Booking <span class="chip chip-lime">Klar</span></p>
         <h1 class="display h-m">To veier inn i timeboken.</h1>
         <p class="lede">Kom blank og ta en time. Eller styr det du allerede har, på min side og i appen.</p>
-        <div class="fig doors">
-          <div class="door is-blank">
-            <p class="door-k">Ny</p>
-            <p class="door-t">Blank inn. Book.</p>
-            <p class="door-b">Ingen konto først. Velg behandler og tid. Så er du inne.</p>
+        <div class="book-illust">
+          <div class="fig doors">
+            <div class="door is-blank">
+              <p class="door-k">Ny</p>
+              <p class="door-t">Blank inn. Book.</p>
+              <p class="door-b">Ingen konto først. Velg behandler og tid. Så er du inne.</p>
+            </div>
+            <div class="door is-in">
+              <p class="door-k">Kunde</p>
+              <p class="door-t">Min side og app.</p>
+              <p class="door-b">Flytt, avbestill, se historikk. For de som allerede har et forhold.</p>
+            </div>
           </div>
-          <div class="door is-in">
-            <p class="door-k">Kunde</p>
-            <p class="door-t">Min side og app.</p>
-            <p class="door-b">Flytt, avbestill, se historikk. For de som allerede har et forhold.</p>
+          <div class="daycal" aria-label="Timebok, onsdag 19. august">
+            <div class="daycal-h">
+              <p class="who">Dr. Svanevik</p>
+              <p class="when">Onsdag 19. august · Sørkedalsveien 10C</p>
+            </div>
+            <div class="daycal-days" aria-hidden="true">
+              <span><b>17</b>man</span>
+              <span><b>18</b>tir</span>
+              <span class="is-on"><b>19</b>ons</span>
+              <span><b>20</b>tor</span>
+              <span><b>21</b>fre</span>
+            </div>
+            <div class="day-hours">
+              <div class="hr"><span class="tm">08:00</span><span class="slot"><i class="free">Ledig</i></span></div>
+              <div class="hr"><span class="tm">09:00</span><span class="slot"><i class="now"><b>Lars Bjerke</b>Oppstartssamtale · 45 min</i></span></div>
+              <div class="hr"><span class="tm">10:00</span><span class="slot"><i class="free">Ledig</i></span></div>
+              <div class="hr"><span class="tm">11:00</span><span class="slot"><i class="busy"><b>Marte Holm</b>Rutine</i></span></div>
+              <div class="hr"><span class="tm">12:00</span><span class="slot"><i class="free">Pause</i></span></div>
+              <div class="hr"><span class="tm">13:00</span><span class="slot"><i class="free">Ledig</i></span></div>
+              <div class="hr"><span class="tm">14:00</span><span class="slot"><i class="busy"><b>Eva Nilsen</b>Avslutning</i></span></div>
+              <div class="hr"><span class="tm">15:00</span><span class="slot"><i class="free">Ledig</i></span></div>
+            </div>
           </div>
         </div>
       </div>
@@ -2710,9 +2956,10 @@ body.on-dark .tab.active {
         showDemo(parseInt(go.getAttribute("data-demo-go"), 10));
         return;
       }
-      var chip = e.target.closest(".d-chip");
+      var chip = e.target.closest(".d-chip, .crm-chip");
       if (chip) {
-        chip.parentElement.querySelectorAll(".d-chip").forEach(function (c) { c.classList.remove("is-on"); });
+        var group = chip.parentElement.querySelectorAll(chip.classList.contains("crm-chip") ? ".crm-chip" : ".d-chip");
+        group.forEach(function (c) { c.classList.remove("is-on"); });
         chip.classList.add("is-on");
         return;
       }
@@ -2739,7 +2986,7 @@ body.on-dark .tab.active {
         }
         return;
       }
-      if (e.target.closest("input, label, .d-mc, .d-slide, .d-upload, .d-compose, .d-lab, .d-rich, .d-act, .d-plist")) return;
+      if (e.target.closest("input, label, .d-mc, .d-slide, .d-upload, .d-compose, .d-lab, .d-rich, .d-act, .d-plist, .crm-chip, .crm-search, .crm-tbl")) return;
       var r = demo.getBoundingClientRect();
       if ((e.clientX - r.left) < r.width * 0.2) {
         if (demoI > 0) showDemo(demoI - 1);
