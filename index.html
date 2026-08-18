@@ -1620,6 +1620,94 @@ body.on-dark .tab.active {
 .fxd .dd-fig b { font-size: 1.25rem; }
 .fxd .dd-next { margin-top: 0.4rem; font-size: 0.7rem; }
 .fxd .dd-note { font-size: 0.72rem; }
+
+.house { margin-top: 1.4rem; }
+.house-roof {
+  background: var(--fx-dark);
+  color: #fff;
+  border-radius: 14px 14px 0 0;
+  padding: 0.75rem 1.15rem 0.7rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.house-roof .k { font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: #a8aaaa; }
+.house-roof .t { font-family: var(--fx-display); font-size: 1.25rem; color: var(--fx-lime); }
+.chambers {
+  display: grid;
+  grid-template-columns: 1fr 56px 1fr;
+  border: 1px solid var(--fx-line);
+  border-top: 0;
+  border-radius: 0 0 14px 14px;
+  overflow: hidden;
+  min-height: 13.5rem;
+}
+.chamber { padding: 1.05rem 1.15rem 1.15rem; }
+.chamber.firm { background: var(--fx-beige); }
+.chamber.pat { background: #fff; }
+.chamber .k { font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fx-mute); }
+.chamber .t { font-family: var(--fx-display); font-size: 1.35rem; letter-spacing: -0.02em; color: var(--fx-ink); margin: 0.25rem 0 0.7rem; }
+.dots-crowd { display: flex; flex-wrap: wrap; gap: 0.35rem; margin: 0.15rem 0 0.7rem; }
+.dots-crowd i {
+  width: 14px; height: 14px; border-radius: 99px; background: var(--fx-ink); opacity: 0.22; display: block;
+}
+.dots-crowd i.on { opacity: 1; background: var(--fx-dark); }
+.chamber .b { font-size: 0.82rem; line-height: 1.4; color: var(--fx-ink-soft); }
+.wall {
+  background: var(--fx-dark);
+  color: var(--fx-lime);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  text-align: center;
+  padding: 0.5rem 0.3rem;
+}
+.wall .x {
+  font-family: var(--fx-display);
+  font-size: 1.4rem;
+  line-height: 1;
+}
+.wall span { font-size: 0.62rem; letter-spacing: 0.06em; text-transform: uppercase; writing-mode: vertical-rl; transform: rotate(180deg); }
+.pat-rooms { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.4rem; margin: 0.15rem 0 0.7rem; }
+.pat-rooms b {
+  display: block;
+  border: 1px solid var(--fx-line);
+  border-radius: 8px;
+  padding: 0.45rem 0.35rem;
+  text-align: center;
+  font-size: 0.68rem;
+  font-weight: 400;
+  color: var(--fx-mute);
+  background: var(--fx-rail);
+}
+.pat-rooms b.open {
+  background: var(--fx-dark);
+  color: var(--fx-lime);
+  border-color: var(--fx-dark);
+}
+.ai-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.55rem;
+  margin-top: 0.95rem;
+}
+.ai-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 0.7rem 0.75rem 0.75rem;
+}
+.ai-card .k { font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fx-mute); }
+.ai-card .t { font-family: var(--fx-display); font-size: 1.15rem; color: var(--fx-ink); margin: 0.15rem 0 0.25rem; letter-spacing: -0.02em; }
+.ai-card .b { font-size: 0.75rem; line-height: 1.35; color: var(--fx-ink-soft); }
+.ai-card.is-now { box-shadow: inset 0 0 0 1.5px var(--fx-ink); }
+@media (max-width: 900px) {
+  .chambers { grid-template-columns: 1fr; }
+  .wall { flex-direction: row; writing-mode: horizontal-tb; min-height: 2.4rem; }
+  .wall span { writing-mode: horizontal-tb; transform: none; }
+  .ai-row { grid-template-columns: 1fr; }
+}
 </style>
 </head>
 <body class="on-dark">
@@ -2202,12 +2290,11 @@ body.on-dark .tab.active {
     <section class="slide" data-i="11" id="s12">
       <div class="slide-body">
         <p class="eyebrow">Modul F · Medlemmer <span class="chip">Piloteres nå</span></p>
-        <h1 class="display h-m">Oppfølging matcher avtalen.</h1>
-        <p class="lede">Avtalen setter planen. Planen setter neste handling. Ingen faller ut.</p>
+        <h1 class="display h-m">Aktiv relasjon. Legen får beskjed.</h1>
+        <p class="lede">AI minner legen — ikke pasienten. Følge opp. Ta kontakt igjen. Hente tilbake.</p>
         <div class="schema">
-          <p class="schema-k">Eksempel · Founding Member</p>
+          <p class="schema-k">Eksempel · Founding Member · aktiv relasjon</p>
           <p class="schema-who">Lars Bjerke · 24 ukers plan</p>
-          <p class="schema-sub">Avtale → plan → neste steg, signert av lege.</p>
           <div class="tl">
             <div class="tl-n">
               <div class="dotx"></div>
@@ -2231,7 +2318,24 @@ body.on-dark .tab.active {
               <div class="dotx"></div>
               <p class="wk">Uke 24</p>
               <p class="tx">Slutt</p>
-              <p class="bx">Forny eller stopp</p>
+              <p class="bx">Forny eller slutt</p>
+            </div>
+          </div>
+          <div class="ai-row">
+            <div class="ai-card">
+              <p class="k">AI til legen</p>
+              <p class="t">Følg opp</p>
+              <p class="b">Neste steg er forfalt. Ta samtalen.</p>
+            </div>
+            <div class="ai-card is-now">
+              <p class="k">AI til legen</p>
+              <p class="t">Ta kontakt igjen</p>
+              <p class="b">Det er stille. Relasjonen må vekkes.</p>
+            </div>
+            <div class="ai-card">
+              <p class="k">AI til legen</p>
+              <p class="t">Hent tilbake</p>
+              <p class="b">Planen er slutt. Forny, eller hent inn igjen.</p>
             </div>
           </div>
         </div>
@@ -2241,17 +2345,37 @@ body.on-dark .tab.active {
       <div class="slide-body">
         <p class="eyebrow">Modul G · Bedrift <span class="chip">Piloten</span></p>
         <h1 class="display h-m">To rom. Én avtale.</h1>
-        <p class="lede">Bedriften betaler. Deltakeren er pasient. Arbeidsgiver ser aldri individuell helse.</p>
-        <div class="fig whos">
-          <div class="who-box firm">
-            <p class="who-k">Bedriften</p>
-            <p class="who-t">Betaler. Ser aggregat.</p>
-            <p class="who-b">Deltakelse og gjennomføring. Aldri journal, skjema-svar eller melding.</p>
+        <p class="lede">Bedriften betaler. Deltakeren er pasient. En vegg mellom aggregat og helse.</p>
+        <div class="house">
+          <div class="house-roof">
+            <p class="k">Avtale</p>
+            <p class="t">Eksempelbedriften AS · én kohort</p>
           </div>
-          <div class="who-box pat">
-            <p class="who-k">Deltakeren</p>
-            <p class="who-t">Pasient. Eget rom.</p>
-            <p class="who-b">Egne rettigheter, uavhengig av arbeidsgivers avtale.</p>
+          <div class="chambers">
+            <div class="chamber firm">
+              <p class="k">Bedriften ser</p>
+              <p class="t">Aggregat</p>
+              <div class="dots-crowd" aria-hidden="true">
+                <i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i>
+                <i class="on"></i><i></i><i></i><i class="on"></i><i class="on"></i>
+                <i></i><i class="on"></i><i class="on"></i><i></i><i class="on"></i>
+              </div>
+              <p class="b">32 av 40 gjennom. Ingen navn. Ingen journal.</p>
+            </div>
+            <div class="wall" aria-hidden="true">
+              <p class="x">×</p>
+              <span>Ikke helse</span>
+            </div>
+            <div class="chamber pat">
+              <p class="k">Deltakeren har</p>
+              <p class="t">Eget rom</p>
+              <div class="pat-rooms" aria-hidden="true">
+                <b class="open">L. Bjerke</b>
+                <b></b>
+                <b></b>
+              </div>
+              <p class="b">Journal, melding, skjema. Egne rettigheter.</p>
+            </div>
           </div>
         </div>
       </div>
