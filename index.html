@@ -1513,6 +1513,93 @@ body.on-dark .tab.active {
   .flow, .doors, .msgfig, .tracks, .whos, .fork { grid-template-columns: 1fr; }
   .flow-arr { display: none; }
 }
+
+.schema {
+  margin-top: 1.45rem;
+  border: 1px solid var(--fx-line);
+  border-radius: 14px;
+  padding: 1.1rem 1.2rem 1.25rem;
+  background: var(--fx-beige);
+}
+.schema-k {
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fx-mute);
+}
+.schema-who {
+  font-family: var(--fx-display);
+  font-size: 1.45rem;
+  letter-spacing: -0.02em;
+  color: var(--fx-ink);
+  line-height: 1.05;
+  margin: 0.2rem 0 0.15rem;
+}
+.schema-sub { font-size: 0.85rem; color: var(--fx-ink-soft); }
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.45rem;
+  margin-top: 1rem;
+}
+.pillar {
+  background: #fff;
+  border-radius: 10px;
+  padding: 0.7rem 0.55rem 0.75rem;
+  text-align: center;
+}
+.pillar .n { font-size: 0.58rem; letter-spacing: 0.08em; color: var(--fx-mute); }
+.pillar .nm { display: block; margin: 0.25rem 0 0.4rem; font-size: 0.78rem; color: var(--fx-ink); line-height: 1.15; }
+.pillar .p {
+  font-family: var(--fx-display);
+  font-size: 1.35rem;
+  letter-spacing: -0.02em;
+  color: var(--fx-ink);
+}
+.pillar.is-low { background: var(--fx-blush); }
+.pillar.is-low .p { color: var(--fx-blush-ink); }
+.tl {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  margin-top: 1rem;
+  position: relative;
+}
+.tl::before {
+  content: "";
+  position: absolute;
+  left: 12%;
+  right: 12%;
+  top: 17px;
+  height: 1px;
+  background: var(--fx-ink);
+}
+.tl-n {
+  position: relative;
+  text-align: center;
+  padding: 0 0.4rem;
+}
+.tl-n .dotx {
+  width: 14px;
+  height: 14px;
+  border-radius: 99px;
+  background: var(--fx-ink);
+  margin: 0 auto 0.65rem;
+  position: relative;
+  z-index: 1;
+}
+.tl-n.is-now .dotx {
+  background: var(--fx-lime);
+  box-shadow: 0 0 0 5px #fff, 0 0 0 6px var(--fx-ink);
+}
+.tl-n .wk { font-size: 0.62rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fx-mute); }
+.tl-n .tx { font-family: var(--fx-display); font-size: 1.15rem; color: var(--fx-ink); letter-spacing: -0.02em; line-height: 1.1; margin-top: 0.15rem; }
+.tl-n .bx { font-size: 0.75rem; color: var(--fx-ink-soft); margin-top: 0.2rem; }
+@media (max-width: 900px) {
+  .pillars { grid-template-columns: 1fr 1fr; }
+  .tl { grid-template-columns: 1fr 1fr; }
+  .tl::before { display: none; }
+}
 </style>
 </head>
 <body class="on-dark">
@@ -2021,16 +2108,17 @@ body.on-dark .tab.active {
       <div class="slide-body">
         <p class="eyebrow">Modul E · Dashboard <span class="chip">Lages tilpasset</span></p>
         <h1 class="display h-m">Innsikt. Ikke rådata.</h1>
-        <p class="lede">Kunden ser sine tall satt i sammenheng. I deres språk. Ingen Kin-score. Wearables senere.</p>
-        <div class="fig dashfig">
-          <p class="who">Feelix</p>
-          <p class="sub">Deres flate. Deres mening i tallene.</p>
-          <div class="bars">
-            <div class="bar" style="height:74%"></div>
-            <div class="bar" style="height:82%"></div>
-            <div class="bar" style="height:47%"></div>
-            <div class="bar" style="height:71%"></div>
-            <div class="bar" style="height:58%"></div>
+        <p class="lede">Fem hjørnesteiner. Ett neste steg. I deres språk. Ingen Kin-score.</p>
+        <div class="schema">
+          <p class="schema-k">Eksempel fra Feelix</p>
+          <p class="schema-who">Lars Bjerke</p>
+          <p class="schema-sub">Uke 14 av 24 · Founding Member</p>
+          <div class="pillars">
+            <div class="pillar"><span class="n">01</span><span class="nm">Søvn</span><span class="p">p74</span></div>
+            <div class="pillar"><span class="n">02</span><span class="nm">Aktivitet</span><span class="p">p82</span></div>
+            <div class="pillar is-low"><span class="n">03</span><span class="nm">Ernæring</span><span class="p">p47</span></div>
+            <div class="pillar"><span class="n">04</span><span class="nm">Stress</span><span class="p">p71</span></div>
+            <div class="pillar"><span class="n">05</span><span class="nm">Livsstil</span><span class="p">p58</span></div>
           </div>
         </div>
       </div>
@@ -2039,25 +2127,38 @@ body.on-dark .tab.active {
       <div class="slide-body">
         <p class="eyebrow">Modul F · Medlemmer <span class="chip">Piloteres nå</span></p>
         <h1 class="display h-m">Oppfølging matcher avtalen.</h1>
-        <p class="lede">Ingen faller ut fordi vi glemte dem. Kadensen følger det kunden faktisk har kjøpt.</p>
-        <div class="fig tracks">
-          <div class="track">
-            <p class="track-t">Program</p>
-            <p class="track-b">Tett. Hvert steg har en neste handling.</p>
-            <div class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></div>
-          </div>
-          <div class="track">
-            <p class="track-t">Medlemskap</p>
-            <p class="track-b">Jeunt. Sjekk inn før det blir stille.</p>
-            <div class="dots"><i class="dot on"></i><i class="dot"></i><i class="dot on"></i><i class="dot"></i></div>
-          </div>
-          <div class="track">
-            <p class="track-t">Klippekort</p>
-            <p class="track-b">Når kortet tynnes. Eller når det blir liggende.</p>
-            <div class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot"></i><i class="dot"></i></div>
+        <p class="lede">Avtalen setter planen. Planen setter neste handling. Ingen faller ut.</p>
+        <div class="schema">
+          <p class="schema-k">Eksempel · Founding Member</p>
+          <p class="schema-who">Lars Bjerke · 24 ukers plan</p>
+          <p class="schema-sub">Avtale → plan → neste steg, signert av lege.</p>
+          <div class="tl">
+            <div class="tl-n">
+              <div class="dotx"></div>
+              <p class="wk">Uke 1</p>
+              <p class="tx">Start</p>
+              <p class="bx">Planen åpnes</p>
+            </div>
+            <div class="tl-n">
+              <div class="dotx"></div>
+              <p class="wk">Uke 9</p>
+              <p class="tx">Rutine</p>
+              <p class="bx">Mørklegging inn</p>
+            </div>
+            <div class="tl-n is-now">
+              <div class="dotx"></div>
+              <p class="wk">Uke 14 · nå</p>
+              <p class="tx">Samtale</p>
+              <p class="bx">Apo B, neste steg</p>
+            </div>
+            <div class="tl-n">
+              <div class="dotx"></div>
+              <p class="wk">Uke 24</p>
+              <p class="tx">Slutt</p>
+              <p class="bx">Forny eller stopp</p>
+            </div>
           </div>
         </div>
-        <p class="note">Dette løpet piloteres nå, på denne bedriften.</p>
       </div>
     </section>
     <section class="slide" data-i="12" id="s13">
