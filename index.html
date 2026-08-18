@@ -450,6 +450,7 @@ body.on-dark .tab.active {
 .stack-join svg { display: block; flex-shrink: 0; }
 
 /* Sequence */
+.seq.seq-3 { grid-template-columns: repeat(3, 1fr); }
 .seq.seq-6 { grid-template-columns: repeat(6, 1fr); }
 .seq {
   display: grid;
@@ -1875,36 +1876,24 @@ body.on-dark .tab.active {
       <div class="slide-body">
         <p class="eyebrow">Leveranse</p>
         <h1 class="display h-m">I denne rekkefølgen.</h1>
-        <div class="seq" aria-label="Leveransesekvens">
-          <div class="seq-step">
-            <div class="mark"><span>00</span></div>
-            <p class="seq-k">Først</p>
-            <h2 class="seq-t">Eget miljø</h2>
-            <p class="seq-b">Kin. Tenant fra token. Ellers er dere en kopi.</p>
-          </div>
+        <div class="seq seq-3" aria-label="Leveransesekvens">
           <div class="seq-step is-now">
             <div class="mark"><span>01</span></div>
-            <p class="seq-k">Piloten</p>
-            <h2 class="seq-t">Denne bedriften</h2>
-            <p class="seq-b">Onboarding, skjema, time, melding, dashboard, aggregat.</p>
+            <p class="seq-k">Pilot · Q4</p>
+            <h2 class="seq-t">Full B2B</h2>
+            <p class="seq-b">Denne bedriften. Hele kullet gjennom.</p>
           </div>
           <div class="seq-step">
             <div class="mark"><span>02</span></div>
-            <p class="seq-k">Deretter</p>
-            <h2 class="seq-t">Resten av basen</h2>
-            <p class="seq-b">B2C. Avtalen som objekt.</p>
+            <p class="seq-k">Q1</p>
+            <h2 class="seq-t">B2C</h2>
+            <p class="seq-b">Resten av kundene. Medlemskap og oppfølging.</p>
           </div>
           <div class="seq-step">
             <div class="mark"><span>03</span></div>
-            <p class="seq-k">Så</p>
-            <h2 class="seq-t">Admin</h2>
-            <p class="seq-b">Tripletex, grupper. Først da er EasyPractice-exit ærlig.</p>
-          </div>
-          <div class="seq-step">
-            <div class="mark"><span>04</span></div>
-            <p class="seq-k">Etter det</p>
-            <h2 class="seq-t">Vekst</h2>
-            <p class="seq-b">Feelix-forfattet. Kin sender ikke score.</p>
+            <p class="seq-k">Q2</p>
+            <h2 class="seq-t">Admin, økonomi og vekst</h2>
+            <p class="seq-b">Tripletex, grupper, og det som skal bære mer enn én bedrift.</p>
           </div>
         </div>
       </div>
