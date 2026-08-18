@@ -1600,6 +1600,26 @@ body.on-dark .tab.active {
   .tl { grid-template-columns: 1fr 1fr; }
   .tl::before { display: none; }
 }
+
+.slide-body.dash-body { justify-content: flex-start; padding-top: clamp(0.7rem, 2vh, 1.2rem); }
+.fxd {
+  margin-top: 0.55rem;
+  border: 1px solid var(--fx-line);
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+}
+.fxd .dd-head { grid-template-columns: 1.2fr auto 1.3fr; padding: 0.7rem 1rem; }
+.fxd .dd-name { font-size: 1.35rem; }
+.fxd .dd-narr { font-size: 0.78rem; padding: 0.55rem 1rem; }
+.fxd .dd-ovw { padding: 0.55rem 1rem 0.25rem; }
+.fxd .dd-ovw-h h3 { font-size: 1.05rem; }
+.fxd .dd-row { padding: 0.28rem 0; }
+.fxd .dd-pills { grid-template-columns: 1fr 1fr; }
+.fxd .dd-pill { padding: 0.55rem 0.75rem 0.6rem; }
+.fxd .dd-fig b { font-size: 1.25rem; }
+.fxd .dd-next { margin-top: 0.4rem; font-size: 0.7rem; }
+.fxd .dd-note { font-size: 0.72rem; }
 </style>
 </head>
 <body class="on-dark">
@@ -2105,20 +2125,76 @@ body.on-dark .tab.active {
       </div>
     </section>
     <section class="slide" data-i="10" id="s11">
-      <div class="slide-body">
+      <div class="slide-body dash-body">
         <p class="eyebrow">Modul E · Dashboard <span class="chip">Lages tilpasset</span></p>
-        <h1 class="display h-m">Innsikt. Ikke rådata.</h1>
-        <p class="lede">Fem hjørnesteiner. Ett neste steg. I deres språk. Ingen Kin-score.</p>
-        <div class="schema">
-          <p class="schema-k">Eksempel fra Feelix</p>
-          <p class="schema-who">Lars Bjerke</p>
-          <p class="schema-sub">Uke 14 av 24 · Founding Member</p>
-          <div class="pillars">
-            <div class="pillar"><span class="n">01</span><span class="nm">Søvn</span><span class="p">p74</span></div>
-            <div class="pillar"><span class="n">02</span><span class="nm">Aktivitet</span><span class="p">p82</span></div>
-            <div class="pillar is-low"><span class="n">03</span><span class="nm">Ernæring</span><span class="p">p47</span></div>
-            <div class="pillar"><span class="n">04</span><span class="nm">Stress</span><span class="p">p71</span></div>
-            <div class="pillar"><span class="n">05</span><span class="nm">Livsstil</span><span class="p">p58</span></div>
+        <div class="fxd">
+          <div class="dd-head">
+            <div>
+              <span class="dd-eye">Pasient · pseudonymisert</span>
+              <p class="dd-name">L. Bjerke</p>
+              <p class="dd-meta">Mann · 42 år</p>
+            </div>
+            <span class="dd-lime">Aktiv plan · uke 14 av 24</span>
+            <div>
+              <span class="dd-eye">Neste konsultasjon</span>
+              <p class="dd-when">12. juni · 14:00</p>
+              <p class="dd-meta">Dr. Svanevik</p>
+            </div>
+          </div>
+          <p class="dd-narr">Biologisk alder og kondisjon trender riktig vei. Ett område å følge: Apo B er marginalt opp siden februar. Vi justerer ernæringsplanen — kostveileder er inne i loopen — fremfor å starte tilskudd nå.</p>
+          <div class="dd-ovw">
+            <div class="dd-ovw-h">
+              <h3>Helhetsbilde</h3>
+              <span>Menn 40–44 · hele skala · vanlig · optimalt</span>
+            </div>
+            <div class="dd-row"><span class="dd-n">01</span><span class="dd-nm">Søvn</span><span class="dd-strip"><i class="dd-anb" style="left:25%;width:45%"></i><i class="dd-opt" style="left:70%;width:20%"></i><b class="dd-mark" style="left:74%"></b></span><span class="dd-p">p74</span></div>
+            <div class="dd-row"><span class="dd-n">02</span><span class="dd-nm">Fysisk aktivitet</span><span class="dd-strip"><i class="dd-anb" style="left:25%;width:45%"></i><i class="dd-opt" style="left:70%;width:20%"></i><b class="dd-mark" style="left:82%"></b></span><span class="dd-p">p82</span></div>
+            <div class="dd-row"><span class="dd-n">03</span><span class="dd-nm">Ernæring</span><span class="dd-strip"><i class="dd-anb" style="left:25%;width:45%"></i><i class="dd-opt" style="left:70%;width:20%"></i><b class="dd-mark" style="left:47%"></b></span><span class="dd-p">p47</span></div>
+            <div class="dd-row"><span class="dd-n">04</span><span class="dd-nm">Stressmestring</span><span class="dd-strip"><i class="dd-anb" style="left:25%;width:45%"></i><i class="dd-opt" style="left:70%;width:20%"></i><b class="dd-mark" style="left:71%"></b></span><span class="dd-p">p71</span></div>
+            <div class="dd-row"><span class="dd-n">05</span><span class="dd-nm">Livsstil</span><span class="dd-strip"><i class="dd-anb" style="left:25%;width:45%"></i><i class="dd-opt" style="left:70%;width:20%"></i><b class="dd-mark" style="left:58%"></b></span><span class="dd-p">p58</span></div>
+            <p class="dd-note">Fire av fem over p25. Ernæring er der vi henter mest løft — Apo B og tilført sukker fra helgemåltider.</p>
+          </div>
+          <div class="dd-pills">
+            <div class="dd-pill">
+              <div class="dd-pill-h"><span class="no">01</span><h4>Søvn</h4><span class="dd-tag mint">Optimalt</span></div>
+              <div class="dd-fig"><b>7,4</b><span>t snitt · 14 netter</span></div>
+              <dl class="dd-meta3">
+                <div><dt>Dyp</dt><dd>1,3 t</dd></div>
+                <div><dt>REM</dt><dd>1,7 t</dd></div>
+                <div><dt>Effektivitet</dt><dd>91 %</dd></div>
+              </dl>
+              <p class="dd-next"><b>Neste steg</b>Behold mørkleggingsrutinen. Måles etter sommerferien.</p>
+            </div>
+            <div class="dd-pill">
+              <div class="dd-pill-h"><span class="no">02</span><h4>Fysisk aktivitet</h4><span class="dd-tag mint">Optimalt</span></div>
+              <div class="dd-fig"><b>241</b><span>min/uke</span></div>
+              <dl class="dd-meta3">
+                <div><dt>Skritt</dt><dd>9 840</dd></div>
+                <div><dt>VO₂ maks</dt><dd>51,4</dd></div>
+                <div><dt>Hvilepuls</dt><dd>52</dd></div>
+              </dl>
+              <p class="dd-next"><b>Neste steg</b>Én lengre Zone 2-økt. Effekt i neste DXA i august.</p>
+            </div>
+            <div class="dd-pill">
+              <div class="dd-pill-h"><span class="no">03</span><h4>Ernæring</h4><span class="dd-tag blush">Følg over tid</span></div>
+              <div class="dd-fig"><b>1,12</b><span>g/L Apo B · 02. mai</span></div>
+              <dl class="dd-meta3">
+                <div><dt>Protein</dt><dd>1,1 g/kg</dd></div>
+                <div><dt>Sukker</dt><dd>38 g</dd></div>
+                <div><dt>Fiber</dt><dd>27 g</dd></div>
+              </dl>
+              <p class="dd-next"><b>Neste steg</b>To desserter byttes mot frukt og nøtter. Re-test Apo B 4. august.</p>
+            </div>
+            <div class="dd-pill">
+              <div class="dd-pill-h"><span class="no">04</span><h4>Stressmestring</h4><span class="dd-tag mint">Optimalt</span></div>
+              <div class="dd-fig"><b>61</b><span>ms HRV · døgnsnitt</span></div>
+              <dl class="dd-meta3">
+                <div><dt>Pust-økter</dt><dd>4 / uke</dd></div>
+                <div><dt>Natt-HRV</dt><dd>66 ms</dd></div>
+                <div><dt>Topper</dt><dd>man / tir</dd></div>
+              </dl>
+              <p class="dd-next"><b>Neste steg</b>To mikropauser man/tir. Evalueres etter fire uker.</p>
+            </div>
           </div>
         </div>
       </div>
