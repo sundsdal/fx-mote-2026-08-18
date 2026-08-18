@@ -889,13 +889,25 @@ body.on-dark .tab.active {
 }
 .d-slot.is-on { background: var(--fx-lime); border-color: var(--fx-lime); color: var(--fx-dark); }
 .d-slot.is-off { color: #bbb; background: var(--fx-rail); pointer-events: none; }
-.d-thread { display: flex; flex-direction: column; gap: 0.75rem; max-height: 280px; overflow: auto; }
+.d-thread { display: flex; flex-direction: column; gap: 0.65rem; max-height: 320px; overflow: auto; padding: 0.15rem 0.15rem 0.2rem; }
 .d-msg {
-  padding: 0.75rem 0.85rem;
+  padding: 0.7rem 0.85rem;
   background: var(--fx-rail);
-  border-radius: 6px;
+  border-radius: 14px 14px 14px 4px;
+  max-width: 78%;
+  align-self: flex-start;
 }
 .d-msg.from-clinic { background: var(--fx-beige); }
+.d-msg.from-you {
+  align-self: flex-end;
+  background: var(--fx-dark);
+  color: #fff;
+  border-radius: 14px 14px 4px 14px;
+  max-width: 68%;
+}
+.d-msg.from-you .when { color: #a8aaaa; }
+.d-msg.from-you p { color: #fff; }
+.d-msg.rich { max-width: 86%; padding: 0.7rem 0.85rem 0.55rem; }
 .d-msg .when {
   font-size: 0.62rem;
   letter-spacing: 0.08em;
@@ -903,6 +915,39 @@ body.on-dark .tab.active {
   color: var(--fx-mute);
   margin-bottom: 0.3rem;
 }
+.d-labs { margin-top: 0.55rem; display: flex; flex-direction: column; gap: 0.3rem; }
+.d-lab {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 0.6rem;
+  align-items: baseline;
+  width: 100%;
+  text-align: left;
+  padding: 0.45rem 0.55rem;
+  background: #fff;
+  border: 1px solid var(--fx-line);
+  border-radius: 9px;
+  color: var(--fx-ink);
+  cursor: pointer;
+}
+.d-lab:hover { background: var(--fx-rail); }
+.d-lab.is-on { border-color: var(--fx-dark); background: var(--fx-page); }
+.d-lab .ln { font-size: 0.88rem; }
+.d-lab .lv { font-variant-numeric: tabular-nums; font-size: 0.88rem; }
+.d-lab .ls { font-size: 0.68rem; color: var(--fx-mute); }
+.d-lab.is-on .ls { color: var(--fx-ink); }
+.d-lab-detail {
+  display: none;
+  margin-top: 0.45rem;
+  padding: 0.55rem 0.6rem;
+  background: #fff;
+  border-radius: 9px;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: var(--fx-ink-soft);
+}
+.d-lab-detail.is-on { display: block; }
+.d-lab-detail strong { color: var(--fx-ink); font-weight: 600; }
 .d-msg p { font-size: 0.88rem; line-height: 1.45; color: var(--fx-ink); }
 .d-compose {
   margin-top: 0.85rem;
@@ -1341,19 +1386,34 @@ body.on-dark .tab.active {
             </div>
 
             <div class="d-screen" data-demo="3">
-              <p class="d-kicker">Sikker melding · journal, ikke chat</p>
+              <p class="d-kicker">Sikker melding</p>
               <div class="d-thread">
                 <div class="d-msg from-clinic">
                   <p class="when">Feelix · 12. mai</p>
-                  <p>Velkommen inn. Skjemaet ditt er lest. Vi tar søvn først i samtalen onsdag. Ta med det du bruker av medisiner — vann er ok om morgenen.</p>
+                  <p>Velkommen inn. Skjemaet ditt er lest. Vi tar søvn først i samtalen onsdag.</p>
                 </div>
-                <div class="d-msg">
+                <div class="d-msg from-you">
                   <p class="when">Deg · 12. mai</p>
-                  <p>Takk. Innsovning har vært 20–30 min den siste uken. Jeg tar med listen.</p>
+                  <p>Takk. Innsovning har vært 20–30 min. Jeg tar med listen.</p>
                 </div>
-                <div class="d-msg from-clinic">
-                  <p class="when">Feelix · 13. mai</p>
-                  <p>Notert. Ingen nye tall før vi har snakket. Onsdag 09:00, Sørkedalsveien 10C.</p>
+                <div class="d-msg from-clinic rich">
+                  <p class="when">Feelix · 14. mai</p>
+                  <p>Nye blodprøver er inne. Klikk på en markør.</p>
+                  <div class="d-labs">
+                    <button class="d-lab" type="button" data-lab="Apo B er 1,12 g/L. Opp 0,08 siden februar. Ikke alarmerende — vi tar det i samtalen.">
+                      <span class="ln">Apo B</span><span class="lv">1,12 g/L</span><span class="ls">Følg over tid</span>
+                    </button>
+                    <button class="d-lab" type="button" data-lab="HbA1c er 31 mmol/mol. Stabilt i optimalt intervall.">
+                      <span class="ln">HbA1c</span><span class="lv">31 mmol/mol</span><span class="ls">Optimalt</span>
+                    </button>
+                    <button class="d-lab" type="button" data-lab="Ferritin er 42 µg/L. Lav-normal. Vi følger til neste retest.">
+                      <span class="ln">Ferritin</span><span class="lv">42 µg/L</span><span class="ls">Lav-normal</span>
+                    </button>
+                    <button class="d-lab" type="button" data-lab="Vitamin D er 78 nmol/L. I Feelix sitt optimale intervall.">
+                      <span class="ln">Vitamin D</span><span class="lv">78 nmol/L</span><span class="ls">Optimalt</span>
+                    </button>
+                  </div>
+                  <p class="d-lab-detail" id="labDetail"></p>
                 </div>
               </div>
               <div class="d-compose">
@@ -1748,7 +1808,18 @@ body.on-dark .tab.active {
         slot.classList.add("is-on");
         return;
       }
-      if (e.target.closest("input, label, .d-mc, .d-slide, .d-upload, .d-compose")) return;
+      var lab = e.target.closest(".d-lab");
+      if (lab) {
+        demo.querySelectorAll(".d-lab").forEach(function (x) { x.classList.remove("is-on"); });
+        lab.classList.add("is-on");
+        var det = document.getElementById("labDetail");
+        if (det) {
+          det.textContent = lab.getAttribute("data-lab") || "";
+          det.classList.add("is-on");
+        }
+        return;
+      }
+      if (e.target.closest("input, label, .d-mc, .d-slide, .d-upload, .d-compose, .d-lab, .d-rich")) return;
       var r = demo.getBoundingClientRect();
       if ((e.clientX - r.left) < r.width * 0.2) {
         if (demoI > 0) showDemo(demoI - 1);
