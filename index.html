@@ -780,6 +780,86 @@ body.on-dark .tab.active {
 }
 .d-chip:hover { background: var(--fx-beige); }
 .d-chip.is-on { background: var(--fx-dark); color: var(--fx-lime); }
+
+.d-mc {
+  display: grid;
+  grid-template-columns: 18px 1fr;
+  column-gap: 0.65rem;
+  row-gap: 0.1rem;
+  align-items: start;
+  padding: 0.5rem 0.15rem;
+  border-top: 1px solid var(--fx-line);
+  cursor: pointer;
+  color: var(--fx-ink);
+  font-size: 0.92rem;
+}
+.d-mc:last-of-type { border-bottom: 1px solid var(--fx-line); }
+.d-mc input { margin-top: 0.28rem; accent-color: #111; }
+.d-mc small { grid-column: 2; font-size: 0.75rem; color: var(--fx-mute); }
+.d-slide { margin-top: 0.35rem; }
+.d-slide-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--fx-mute);
+  margin-bottom: 0.45rem;
+}
+.d-slide-top strong {
+  font-family: var(--fx-display);
+  font-size: 1.45rem;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  color: var(--fx-ink);
+  font-weight: 400;
+}
+.d-slide input[type=range] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 2px;
+  background: var(--fx-line);
+  border-radius: 99px;
+  outline: none;
+}
+.d-slide input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 99px;
+  background: var(--fx-dark);
+  border: 0;
+  cursor: pointer;
+  box-shadow: 0 0 0 6px #fff;
+}
+.d-upload {
+  display: block;
+  margin-top: 0.25rem;
+  padding: 0.85rem 1rem;
+  border: 1px dashed #cfcfcf;
+  border-radius: 9px;
+  background: var(--fx-rail);
+  cursor: pointer;
+}
+.d-upload:hover { background: var(--fx-beige); }
+.d-upload input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+.d-upload-title { display: block; font-size: 0.92rem; color: var(--fx-ink); }
+.d-upload-sub { display: block; margin-top: 0.2rem; font-size: 0.75rem; color: var(--fx-mute); }
+.d-upload-file {
+  display: none;
+  margin-top: 0.45rem;
+  font-family: var(--fx-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  color: var(--fx-ink);
+}
+.d-upload.has-file { background: var(--fx-beige); border-style: solid; border-color: var(--fx-line); }
+.d-upload.has-file .d-upload-file { display: block; }
+.d-form .d-q { margin-top: 0.75rem; }
+.d-form .d-q + .d-q { margin-top: 0.85rem; padding-top: 0.75rem; }
+
 .d-days {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -1057,40 +1137,30 @@ body.on-dark .tab.active {
               </div>
             </div>
 
-            <div class="d-screen" data-demo="1">
-              <p class="d-kicker">Spørreskjema · fire spørsmål</p>
-              <div class="d-q">
-                <h3>Hvordan har søvnen vært de siste to ukene?</h3>
-                <div class="d-chips">
-                  <button class="d-chip" type="button">Stabil</button>
-                  <button class="d-chip is-on" type="button">Ujevn</button>
-                  <button class="d-chip" type="button">Dårlig</button>
-                </div>
-              </div>
-              <div class="d-q">
-                <h3>Hvor mange dager beveger du deg minst 30 minutter?</h3>
-                <div class="d-chips">
-                  <button class="d-chip" type="button">0–1</button>
-                  <button class="d-chip is-on" type="button">2–3</button>
-                  <button class="d-chip" type="button">4 eller mer</button>
-                </div>
-              </div>
-              <div class="d-q">
-                <h3>Stress på jobb akkurat nå?</h3>
-                <div class="d-chips">
-                  <button class="d-chip" type="button">Lavt</button>
-                  <button class="d-chip is-on" type="button">Håndterbart</button>
-                  <button class="d-chip" type="button">Høyt</button>
-                </div>
-              </div>
+            <div class="d-screen d-form" data-demo="1">
+              <p class="d-kicker">Spørreskjema</p>
               <div class="d-q">
                 <h3>Hva skal legen ta tak i først?</h3>
-                <div class="d-chips">
-                  <button class="d-chip is-on" type="button">Søvn</button>
-                  <button class="d-chip" type="button">Energi</button>
-                  <button class="d-chip" type="button">Kost</button>
-                  <button class="d-chip" type="button">Vet ikke</button>
+                <label class="d-mc"><input type="radio" name="fokus" value="sovn" checked> <span>Søvn</span><small>Innsovning, natt, restitusjon</small></label>
+                <label class="d-mc"><input type="radio" name="fokus" value="energi"> <span>Energi</span><small>Dagsform og restitusjon etter jobb</small></label>
+                <label class="d-mc"><input type="radio" name="fokus" value="kost"> <span>Kost</span><small>Måltider, sukker, alkohol</small></label>
+                <label class="d-mc"><input type="radio" name="fokus" value="vetikke"> <span>Vet ikke</span><small>Legen setter rekkefølgen</small></label>
+              </div>
+              <div class="d-q">
+                <h3>Stress på jobb de siste 14 dagene</h3>
+                <div class="d-slide">
+                  <div class="d-slide-top"><span>Lavt</span><strong id="stressVal">6</strong><span>Høyt</span></div>
+                  <input id="stress" type="range" min="1" max="10" value="6">
                 </div>
+              </div>
+              <div class="d-q">
+                <h3>Har du en journal vi skal se?</h3>
+                <label class="d-upload" id="journalUp">
+                  <input id="journalFile" type="file" accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/*">
+                  <span class="d-upload-title">Last opp eksisterende journal</span>
+                  <span class="d-upload-sub">PDF eller bilde. Blir hos Feelix. Arbeidsgiver ser den ikke.</span>
+                  <span class="d-upload-file" id="journalName"></span>
+                </label>
               </div>
               <div class="d-actions">
                 <button class="d-btn ghost" type="button" data-demo-go="0">Tilbake</button>
@@ -1540,7 +1610,7 @@ body.on-dark .tab.active {
         slot.classList.add("is-on");
         return;
       }
-      if (e.target.closest("input, .d-compose")) return;
+      if (e.target.closest("input, label, .d-mc, .d-slide, .d-upload, .d-compose")) return;
       var r = demo.getBoundingClientRect();
       if ((e.clientX - r.left) < r.width * 0.2) {
         if (demoI > 0) showDemo(demoI - 1);
@@ -1551,6 +1621,22 @@ body.on-dark .tab.active {
         go(i + 1);
       }
     });
+    var stress = document.getElementById("stress");
+    var stressVal = document.getElementById("stressVal");
+    if (stress && stressVal) {
+      stress.addEventListener("input", function () { stressVal.textContent = stress.value; });
+    }
+    var journalFile = document.getElementById("journalFile");
+    var journalUp = document.getElementById("journalUp");
+    var journalName = document.getElementById("journalName");
+    if (journalFile && journalUp && journalName) {
+      journalFile.addEventListener("change", function () {
+        var f = journalFile.files && journalFile.files[0];
+        if (!f) return;
+        journalName.textContent = f.name;
+        journalUp.classList.add("has-file");
+      });
+    }
   }
 
   fromHash();
