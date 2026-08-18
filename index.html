@@ -122,8 +122,8 @@ body.on-dark {
 }
 .tabs::-webkit-scrollbar { display: none; }
 .tab {
-  flex: 1 1 0;
-  min-width: 0;
+  flex: 0 0 auto;
+  min-width: 4.4rem;
   display: flex;
   align-items: baseline;
   gap: 0.4rem;
@@ -1274,6 +1274,37 @@ body.on-dark .tab.active {
   }
   .slide:last-child { page-break-after: auto; }
 }
+
+.mods {
+  list-style: none;
+  margin-top: 1.5rem;
+  border-top: 1px solid var(--fx-line);
+}
+.mods li {
+  display: grid;
+  grid-template-columns: 1.7rem 1fr auto;
+  align-items: baseline;
+  gap: 0.9rem;
+  padding: 0.68rem 0;
+  border-bottom: 1px solid var(--fx-line);
+}
+.mods-k {
+  font-family: var(--fx-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  color: var(--fx-mute);
+}
+.mods-n {
+  font-family: var(--fx-display);
+  font-size: clamp(1.12rem, 2.15vw, 1.5rem);
+  letter-spacing: -0.02em;
+  color: var(--fx-ink);
+  line-height: 1.08;
+}
+.chip-beige {
+  background: var(--fx-beige);
+  color: var(--fx-ink-soft);
+}
 </style>
 </head>
 <body class="on-dark">
@@ -1292,10 +1323,18 @@ body.on-dark .tab.active {
     <button class="tab" data-go="5" type="button"><span class="tab-num">06</span><span class="tab-label">Miljø</span></button>
     <button class="tab" data-go="6" type="button"><span class="tab-num">07</span><span class="tab-label">Pilot</span></button>
     <button class="tab" data-go="7" type="button"><span class="tab-num">08</span><span class="tab-label">Omfang</span></button>
-    <button class="tab" data-go="8" type="button"><span class="tab-num">09</span><span class="tab-label">Står</span></button>
-    <button class="tab" data-go="9" type="button"><span class="tab-num">10</span><span class="tab-label">I møtet</span></button>
-    <button class="tab" data-go="10" type="button"><span class="tab-num">11</span><span class="tab-label">Pris</span></button>
-    <button class="tab" data-go="11" type="button"><span class="tab-num">12</span><span class="tab-label">Neste</span></button>
+    <button class="tab" data-go="8" type="button"><span class="tab-num">09</span><span class="tab-label">Åtte</span></button>
+    <button class="tab" data-go="9" type="button"><span class="tab-num">10</span><span class="tab-label">Booking</span></button>
+    <button class="tab" data-go="10" type="button"><span class="tab-num">11</span><span class="tab-label">Journal</span></button>
+    <button class="tab" data-go="11" type="button"><span class="tab-num">12</span><span class="tab-label">Økonomi</span></button>
+    <button class="tab" data-go="12" type="button"><span class="tab-num">13</span><span class="tab-label">Melding</span></button>
+    <button class="tab" data-go="13" type="button"><span class="tab-num">14</span><span class="tab-label">Dashboard</span></button>
+    <button class="tab" data-go="14" type="button"><span class="tab-num">15</span><span class="tab-label">Medlem</span></button>
+    <button class="tab" data-go="15" type="button"><span class="tab-num">16</span><span class="tab-label">Bedrift</span></button>
+    <button class="tab" data-go="16" type="button"><span class="tab-num">17</span><span class="tab-label">Skjema</span></button>
+    <button class="tab" data-go="17" type="button"><span class="tab-num">18</span><span class="tab-label">I møtet</span></button>
+    <button class="tab" data-go="18" type="button"><span class="tab-num">19</span><span class="tab-label">Pris</span></button>
+    <button class="tab" data-go="19" type="button"><span class="tab-num">20</span><span class="tab-label">Neste</span></button>
   </nav>
 
   <main class="deck" id="deck">
@@ -1726,33 +1765,233 @@ body.on-dark .tab.active {
 
     <section class="slide" data-i="8" id="s09">
       <div class="slide-body">
-        <p class="eyebrow">Flaten</p>
-        <h1 class="display h-m">Hva som står, og hva vi setter på.</h1>
-        <div class="split">
-          <div class="split-col">
-            <h2 class="col-h"><span class="chip">Står</span></h2>
-            <ul class="dash">
-              <li>Booking</li>
-              <li>Sikker melding</li>
-              <li>Skjemamotor</li>
-            </ul>
-          </div>
-          <div class="split-col build">
-            <h2 class="col-h"><span class="tag">Settes på</span></h2>
-            <ul class="dash">
-              <li>Onboarding-flyt for denne bedriften</li>
-              <li>Dashboard uten Kin-score</li>
-              <li>Aggregert analyse med k-gulv</li>
-              <li>Deres skjema</li>
-              <li>Feelix-merket flate. Web, ikke app.</li>
-            </ul>
-          </div>
-        </div>
-        <p class="note">Booking mangler ikke. Ingen wearables. Ingen integrasjoner. Bedriftsadmin ser aldri journal, skjema-svar eller melding.</p>
+        <p class="eyebrow">Behovsspesifikasjon</p>
+        <h1 class="display h-m">Åtte moduler. Slik de står i dag.</h1>
+        <ol class="mods">
+          <li><span class="mods-k">A</span><span class="mods-n">Booking og timeadministrasjon</span><span class="chip chip-lime">Står</span></li>
+          <li><span class="mods-k">B</span><span class="mods-n">Journal og pasientnotater</span><span class="chip chip-lime">Står</span></li>
+          <li><span class="mods-k">C</span><span class="mods-n">Økonomi mot Tripletex</span><span class="chip chip-beige">Senere</span></li>
+          <li><span class="mods-k">D</span><span class="mods-n">Sikker melding</span><span class="chip chip-lime">Står</span></li>
+          <li><span class="mods-k">E</span><span class="mods-n">Kundedashboard</span><span class="chip">Settes på</span></li>
+          <li><span class="mods-k">F</span><span class="mods-n">Oppfølging av medlemmer</span><span class="chip chip-beige">Etter bedriften</span></li>
+          <li><span class="mods-k">G</span><span class="mods-n">Oppfølging av bedrifter</span><span class="chip">Piloten</span></li>
+          <li><span class="mods-k">H</span><span class="mods-n">Spørreundersøkelser og KTI</span><span class="chip chip-lime">Står</span></li>
+        </ol>
       </div>
     </section>
 
     <section class="slide" data-i="9" id="s10">
+      <div class="slide-body">
+        <p class="eyebrow">Modul A · Booking og timeadministrasjon</p>
+        <h1 class="display h-m">Kunden booker selv. Uten app.</h1>
+        <p class="lede">Time, kalender og oppmøte henger sammen. Kunden flytter og avbestiller selv.</p>
+        <div class="grid-2">
+          <div>
+            <h2 class="col-h">I dag</h2>
+            <ul class="dash">
+              <li>Online booking. Web, ikke app.</li>
+              <li>Kalender per behandler.</li>
+              <li>Oppmøte og no-show.</li>
+            </ul>
+          </div>
+          <div>
+            <h2 class="col-h">Ikke nå</h2>
+            <ul class="dash">
+              <li>Venteliste og rom.</li>
+              <li>Klippekort og betaling i booking.</li>
+              <li>Hele EasyPractice-katalogen.</li>
+            </ul>
+          </div>
+        </div>
+        <p class="note">For denne bedriften: programmets tider. Ikke hele klinikken ennå.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-i="10" id="s11">
+      <div class="slide-body">
+        <p class="eyebrow">Modul B · Journal og pasientnotater</p>
+        <h1 class="display h-m">Notatet hører til pasienten.</h1>
+        <p class="lede">Maler, vedlegg og historikk på samme sted. Målinger kan vises videre i dashboardet.</p>
+        <div class="grid-2">
+          <div>
+            <h2 class="col-h">I dag</h2>
+            <ul class="dash">
+              <li>Pasientnotater og maler.</li>
+              <li>Vedlegg og prøvesvar.</li>
+              <li>Målinger som kan gjenbrukes.</li>
+            </ul>
+          </div>
+          <div>
+            <h2 class="col-h">Ikke nå</h2>
+            <ul class="dash">
+              <li>AI-assistent i journalen.</li>
+              <li>Rekvisisjon. PriDok blir værende.</li>
+              <li>Flytting av EasyPractice-historikk.</li>
+            </ul>
+          </div>
+        </div>
+        <p class="note">Journalen står. Den erstatter ikke EasyPractice i denne runden.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-i="11" id="s12">
+      <div class="slide-body">
+        <p class="eyebrow">Modul C · Økonomi mot Tripletex</p>
+        <h1 class="display h-m">Faktura uten dobbeltarbeid.</h1>
+        <p class="lede">Booking og salg skal bli fakturagrunnlag av seg selv. Det er ikke denne leveransen.</p>
+        <div class="grid-2">
+          <div>
+            <h2 class="col-h">I dag</h2>
+            <ul class="dash">
+              <li>Tripletex er ikke koblet.</li>
+              <li>Fakturering går som i dag.</li>
+            </ul>
+          </div>
+          <div>
+            <h2 class="col-h">Ikke nå</h2>
+            <ul class="dash">
+              <li>Automatisk fakturagrunnlag.</li>
+              <li>Medlemskap og samlefaktura.</li>
+            </ul>
+          </div>
+        </div>
+        <p class="note">Kommer når klinikken skal ut av EasyPractice. Ikke i bedriftspiloten.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-i="12" id="s13">
+      <div class="slide-body">
+        <p class="eyebrow">Modul D · Sikker melding</p>
+        <h1 class="display h-m">Én tråd med kunden.</h1>
+        <p class="lede">Helseopplysninger lever i portalen. Ikke i SMS eller e-post. Varsel uten innhold.</p>
+        <div class="grid-2">
+          <div>
+            <h2 class="col-h">I dag</h2>
+            <ul class="dash">
+              <li>Toveis tråd i innlogget portal.</li>
+              <li>BankID inn. Varsel uten helse i teksten.</li>
+            </ul>
+          </div>
+          <div>
+            <h2 class="col-h">Ikke nå</h2>
+            <ul class="dash">
+              <li>E-post og SMS-motor.</li>
+              <li>Norsk helsenett.</li>
+              <li>Vedlegg i tråden.</li>
+            </ul>
+          </div>
+        </div>
+        <p class="note">Kanalen står. Den er klar for denne bedriften.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-i="13" id="s14">
+      <div class="slide-body">
+        <p class="eyebrow">Modul E · Kundedashboard</p>
+        <h1 class="display h-m">Innsikt. Ikke rådata.</h1>
+        <p class="lede">Kunden logger inn og ser sine egne tall satt i sammenheng. I deres språk. Ingen Kin-score.</p>
+        <div class="grid-2">
+          <div>
+            <h2 class="col-h">I dag</h2>
+            <ul class="dash">
+              <li>Flaten settes på. Feelix-merke.</li>
+              <li>Deres Lovable-beta er utgangspunktet.</li>
+              <li>Målinger fra klinikk og skjema.</li>
+            </ul>
+          </div>
+          <div>
+            <h2 class="col-h">Ikke nå</h2>
+            <ul class="dash">
+              <li>Wearables.</li>
+              <li>App.</li>
+              <li>Oura, Whoop, Fitbit, Sibionics.</li>
+            </ul>
+          </div>
+        </div>
+        <p class="note">Dere eier hvordan det ser ut og hva det betyr. Vi eier ikke tolkningen.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-i="14" id="s15">
+      <div class="slide-body">
+        <p class="eyebrow">Modul F · Oppfølging av medlemmer</p>
+        <h1 class="display h-m">Ingen faller ut.</h1>
+        <p class="lede">Oppfølging matcher avtalen kunden har. Medlemskap og klippekort kommer etter bedriften.</p>
+        <div class="grid-2">
+          <div>
+            <h2 class="col-h">I dag</h2>
+            <ul class="dash">
+              <li>Forløpet kan kjøres.</li>
+              <li>Arbeidsliste: ikke booket, ikke møtt.</li>
+            </ul>
+          </div>
+          <div>
+            <h2 class="col-h">Ikke nå</h2>
+            <ul class="dash">
+              <li>Medlemskap og egne avtaletyper.</li>
+              <li>Dere lager nye avtaler uten oss.</li>
+              <li>Pause, fornyelse, frafallsalarm.</li>
+            </ul>
+          </div>
+        </div>
+        <p class="note">Først denne kohorten. Så resten av kundebasen.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-i="15" id="s16">
+      <div class="slide-body">
+        <p class="eyebrow">Modul G · Oppfølging av bedrifter</p>
+        <h1 class="display h-m">Bedriften betaler. Deltakeren er pasient.</h1>
+        <p class="lede">Én avtale mot bedriften. Hver ansatt har egne rettigheter. Arbeidsgiver ser aldri individuell helse.</p>
+        <div class="grid-2">
+          <div>
+            <h2 class="col-h">I dag</h2>
+            <ul class="dash">
+              <li>Dette er første leveranse.</li>
+              <li>Én bedrift. Én kohort. Gjennomføring.</li>
+              <li>Aggregat uten individhelse.</li>
+            </ul>
+          </div>
+          <div>
+            <h2 class="col-h">Ikke nå</h2>
+            <ul class="dash">
+              <li>Flere avdelinger og kvoter.</li>
+              <li>Samlefaktura mot Tripletex.</li>
+              <li>Bedriftsadmin med egen innlogging.</li>
+            </ul>
+          </div>
+        </div>
+        <p class="note">Feelix ser hvem som er gjennom. Bedriften ser bare aggregat, og bare hvis dere vil.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-i="16" id="s17">
+      <div class="slide-body">
+        <p class="eyebrow">Modul H · Spørreundersøkelser og KTI</p>
+        <h1 class="display h-m">Samme skjema. To bruk.</h1>
+        <p class="lede">Kundetilfredshet og kliniske spørsmål i samme verktøy. Versjonerte maler, slik at historikken holder.</p>
+        <div class="grid-2">
+          <div>
+            <h2 class="col-h">I dag</h2>
+            <ul class="dash">
+              <li>Skjema står. Mal, svar, opplasting.</li>
+              <li>Vi setter programmets skjema sammen med dere.</li>
+            </ul>
+          </div>
+          <div>
+            <h2 class="col-h">Ikke nå</h2>
+            <ul class="dash">
+              <li>Selvbetjent KTI-bygger.</li>
+              <li>NPS og service recovery.</li>
+              <li>Utsending på e-post og SMS.</li>
+            </ul>
+          </div>
+        </div>
+        <p class="note">Først spørsmålene i dette programmet. Byggeren kommer når vi har sett hva som faktisk brukes.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-i="17" id="s18">
       <div class="slide-body">
         <p class="eyebrow">I dette møtet</p>
         <h1 class="display h-m">Det vi trenger å bli enige om.</h1>
@@ -1781,7 +2020,7 @@ body.on-dark .tab.active {
       </div>
     </section>
 
-    <section class="slide" data-i="10" id="s11">
+    <section class="slide" data-i="18" id="s19">
       <div class="slide-body">
         <p class="eyebrow">Hvis dere spør om pris</p>
         <div class="quotes">
@@ -1793,7 +2032,7 @@ body.on-dark .tab.active {
       </div>
     </section>
 
-    <section class="slide dark" data-i="11" id="s12">
+    <section class="slide dark" data-i="19" id="s20">
       <div class="slide-body">
         <h1 class="display h-xl">Denne bedriften. Deretter deres system.</h1>
         <p class="next-line">Neste: hvilket skjema, og hva dashboardet viser.</p>
