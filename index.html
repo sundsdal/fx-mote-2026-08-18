@@ -860,6 +860,39 @@ body.on-dark .tab.active {
 .d-form .d-q { margin-top: 0.75rem; }
 .d-form .d-q + .d-q { margin-top: 0.85rem; padding-top: 0.75rem; }
 
+.d-bid-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-top: 1.35rem;
+  padding: 0.8rem 1.15rem;
+  background: #39134c;
+  color: #fff;
+  border-radius: 9px;
+  font-size: 1rem;
+}
+.d-bid-btn:hover { background: #4a1a63; }
+.d-bid-mark {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: #fff;
+  color: #39134c;
+  display: grid;
+  place-items: center;
+  font-family: var(--fx-display);
+  font-size: 0.95rem;
+  font-weight: 400;
+  line-height: 1;
+}
+.d-bid-note {
+  margin-top: 0.85rem;
+  font-size: 0.8rem;
+  color: var(--fx-mute);
+  max-width: 32em;
+}
+
+
 .d-days {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -1243,8 +1276,8 @@ body.on-dark .tab.active {
           <div class="seq-step">
             <div class="mark"><span>01</span></div>
             <p class="seq-k">Onboarding</p>
-            <h2 class="seq-t">En lenke inn</h2>
-            <p class="seq-b">Uten e-post eller SMS. De er inne.</p>
+            <h2 class="seq-t">BankID inn</h2>
+            <p class="seq-b">Lenke, så BankID. De er inne.</p>
           </div>
           <div class="seq-step">
             <div class="mark"><span>02</span></div>
@@ -1285,24 +1318,37 @@ body.on-dark .tab.active {
             <p class="who">På vegne av Eksempelbedriften AS</p>
           </div>
           <div class="demo-steps">
-            <button type="button" data-demo-go="0" class="is-on"><span class="n">01</span><span class="l">Velkommen</span></button>
-            <button type="button" data-demo-go="1"><span class="n">02</span><span class="l">Skjema</span></button>
-            <button type="button" data-demo-go="2"><span class="n">03</span><span class="l">Time</span></button>
-            <button type="button" data-demo-go="3"><span class="n">04</span><span class="l">Melding</span></button>
-            <button type="button" data-demo-go="4"><span class="n">05</span><span class="l">Dashboard</span></button>
+            <button type="button" data-demo-go="0" class="is-on"><span class="n">01</span><span class="l">BankID</span></button>
+            <button type="button" data-demo-go="1"><span class="n">02</span><span class="l">Velkommen</span></button>
+            <button type="button" data-demo-go="2"><span class="n">03</span><span class="l">Skjema</span></button>
+            <button type="button" data-demo-go="3"><span class="n">04</span><span class="l">Time</span></button>
+            <button type="button" data-demo-go="4"><span class="n">05</span><span class="l">Melding</span></button>
+            <button type="button" data-demo-go="5"><span class="n">06</span><span class="l">Dashboard</span></button>
           </div>
           <div class="d-stage">
 
             <div class="d-screen is-on" data-demo="0">
-              <p class="d-kicker">Invitasjon</p>
+              <p class="d-kicker">Invitasjon · Eksempelbedriften AS</p>
+              <h2 class="d-title">Start med BankID.</h2>
+              <p class="d-lede">Feelix må vite at det er deg før programmet åpner. Ingen e-post. Ingen kode på SMS.</p>
+              <button class="d-bid-btn" type="button" data-demo-go="1">
+                <span class="d-bid-mark">B</span>
+                Logg inn med BankID
+              </button>
+              <p class="d-bid-note">Feelix ser aldri passordet. Arbeidsgiver ser aldri innloggingen.</p>
+            </div>
+
+            <div class="d-screen" data-demo="1">
+              <p class="d-kicker">Du er inne</p>
               <h2 class="d-title">Velkommen til Feelix.</h2>
-              <p class="d-lede">På vegne av Eksempelbedriften AS. Du er med i bedriftens program. Ingen app å laste ned. Ingen klokke å koble på.</p>
+              <p class="d-lede">På vegne av Eksempelbedriften AS. BankID er bekreftet. Ingen app å laste ned. Ingen klokke å koble på.</p>
               <div class="d-actions">
-                <button class="d-btn" type="button" data-demo-go="1">Kom i gang</button>
+                <button class="d-btn ghost" type="button" data-demo-go="0">Tilbake</button>
+                <button class="d-btn" type="button" data-demo-go="2">Åpne skjema</button>
               </div>
             </div>
 
-            <div class="d-screen d-form" data-demo="1">
+            <div class="d-screen d-form" data-demo="2">
               <p class="d-kicker">Spørreskjema</p>
               <div class="d-q">
                 <h3>Hva skal legen ta tak i først?</h3>
@@ -1328,12 +1374,12 @@ body.on-dark .tab.active {
                 </label>
               </div>
               <div class="d-actions">
-                <button class="d-btn ghost" type="button" data-demo-go="0">Tilbake</button>
-                <button class="d-btn" type="button" data-demo-go="2">Book time</button>
+                <button class="d-btn ghost" type="button" data-demo-go="1">Tilbake</button>
+                <button class="d-btn" type="button" data-demo-go="3">Book time</button>
               </div>
             </div>
 
-            <div class="d-screen d-book" data-demo="2">
+            <div class="d-screen d-book" data-demo="3">
               <p class="d-kicker">Booking</p>
               <h2 class="d-title">Velg dato og tidspunkt.</h2>
               <div class="d-card">
@@ -1380,12 +1426,12 @@ body.on-dark .tab.active {
                 </div>
               </div>
               <div class="d-actions">
-                <button class="d-btn ghost" type="button" data-demo-go="1">Tilbake</button>
-                <button class="d-btn" type="button" data-demo-go="3">Bekreft onsdag 09:00</button>
+                <button class="d-btn ghost" type="button" data-demo-go="2">Tilbake</button>
+                <button class="d-btn" type="button" data-demo-go="4">Bekreft onsdag 09:00</button>
               </div>
             </div>
 
-            <div class="d-screen" data-demo="3">
+            <div class="d-screen" data-demo="4">
               <p class="d-kicker">Sikker melding</p>
               <div class="d-thread">
                 <div class="d-msg from-clinic">
@@ -1421,12 +1467,12 @@ body.on-dark .tab.active {
                 <button class="d-btn" type="button">Send</button>
               </div>
               <div class="d-actions">
-                <button class="d-btn ghost" type="button" data-demo-go="2">Tilbake</button>
-                <button class="d-btn" type="button" data-demo-go="4">Se dashboard</button>
+                <button class="d-btn ghost" type="button" data-demo-go="3">Tilbake</button>
+                <button class="d-btn" type="button" data-demo-go="5">Se dashboard</button>
               </div>
             </div>
 
-            <div class="d-screen" data-demo="4">
+            <div class="d-screen" data-demo="5">
               <p class="d-kicker">Anna Holm · Eksempelbedriften AS · uke 3</p>
               <h2 class="d-title">Slik leser legen deg.</h2>
               <div class="d-pillars">
@@ -1545,7 +1591,7 @@ body.on-dark .tab.active {
           <div class="firm"></div>
         </div>
         <ol class="path" aria-label="Piloten">
-          <li class="path-item"><p class="path-n">01</p><p class="path-t">Onboarding</p></li>
+          <li class="path-item"><p class="path-n">01</p><p class="path-t">BankID</p></li>
           <li class="path-item"><p class="path-n">02</p><p class="path-t">Skjema</p></li>
           <li class="path-item"><p class="path-n">03</p><p class="path-t">Time</p></li>
           <li class="path-item"><p class="path-n">04</p><p class="path-t">Melding</p></li>
@@ -1719,7 +1765,7 @@ body.on-dark .tab.active {
     var k = e.key;
     if (k === "ArrowRight" || k === "ArrowDown" || k === " " || k === "Spacebar" || k === "j") {
       e.preventDefault();
-      if (i === DEMO && demoI < 4) showDemo(demoI + 1);
+      if (i === DEMO && demoI < 5) showDemo(demoI + 1);
       else go(i + 1);
     } else if (k === "ArrowLeft" || k === "ArrowUp" || k === "k") {
       e.preventDefault();
