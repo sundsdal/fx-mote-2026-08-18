@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Feelix · 18. august 2026</title>
+<style>
+@font-face {
+  font-family: "EK Roumald";
+  src: url("fonts/EKRoumald-Roman.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("fonts/Inter-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("fonts/Inter-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("fonts/Inter-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --fx-beige: #f3eee4;
+  --fx-blue-pale: #dce6fa;
+  --fx-blue: #1863dc;
+  --fx-blush-ink: #8a2222;
+  --fx-blush: #f8e4e4;
+  --fx-cream: #fcf8d8;
+  --fx-dark: #272a2a;
+  --fx-display: "EK Roumald", "Cormorant Garamond", "Times New Roman", Times, serif;
+  --fx-ink-soft: #444;
+  --fx-ink: #000;
+  --fx-lime: #aaf046;
+  --fx-line: #e2e2e2;
+  --fx-mint-ink: #114e0b;
+  --fx-mint: #cef5ca;
+  --fx-mono: ui-monospace, "SF Mono", Menlo, monospace;
+  --fx-mute: #666;
+  --fx-page: #ffffff;
+  --fx-pink: #dd23bb;
+  --fx-rail: #f4f4f2;
+  --fx-wheat-ink: #5e5515;
+  --fx-wheat: #ede2a3;
+  --fx-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --chrome-line: var(--fx-line);
+  --chrome-fg: var(--fx-mute);
+  --chrome-mark: var(--fx-ink);
+  --tab-hover: var(--fx-beige);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  height: 100%;
+  background: var(--fx-page);
+  color: var(--fx-ink-soft);
+  font-family: var(--fx-body);
+  font-size: 16px;
+  font-feature-settings: "ss01", "cv11";
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection { background: var(--fx-lime); color: var(--fx-dark); }
+
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+a { color: inherit; text-decoration: none; }
+
+.app {
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+body.on-dark {
+  background: var(--fx-dark);
+  --chrome-line: #3a3d3d;
+  --chrome-fg: #a8aaaa;
+  --chrome-mark: var(--fx-beige);
+  --tab-hover: #323535;
+}
+
+/* ── Header ─────────────────────────────────────────────── */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.7rem 1.75rem;
+  font-size: 0.8125rem;
+  color: var(--chrome-fg);
+}
+.header-meta { letter-spacing: 0.04em; font-variant-numeric: tabular-nums; }
+.wordmark {
+  font-family: var(--fx-display);
+  font-style: italic;
+  font-size: 1.25rem;
+  color: var(--chrome-mark);
+  line-height: 1;
+}
+
+/* ── Tabs ───────────────────────────────────────────────── */
+.tabs {
+  display: flex;
+  border-top: 1px solid var(--chrome-line);
+  border-bottom: 1px solid var(--chrome-line);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.tabs::-webkit-scrollbar { display: none; }
+.tab {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  padding: 0.72rem 0.55rem;
+  border-right: 1px solid var(--chrome-line);
+  color: var(--chrome-fg);
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.tab:first-child { border-left: 1px solid var(--chrome-line); }
+.tab:hover { background: var(--tab-hover); color: var(--chrome-mark); }
+.tab.active {
+  background: var(--fx-dark);
+  color: var(--fx-lime);
+}
+body.on-dark .tab.active {
+  background: var(--fx-dark);
+  color: var(--fx-lime);
+  box-shadow: inset 0 0 0 1px #3a3d3d;
+}
+.tab-num {
+  font-family: var(--fx-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.06em;
+  font-variant-numeric: tabular-nums;
+  flex-shrink: 0;
+}
+.tab-label {
+  font-family: var(--fx-display);
+  font-size: clamp(0.78rem, 1.05vw, 1.02rem);
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── Slides ─────────────────────────────────────────────── */
+.deck { position: relative; min-height: 0; }
+.slide {
+  position: absolute;
+  inset: 0;
+  display: none;
+  background: var(--fx-page);
+  color: var(--fx-ink-soft);
+}
+.slide.is-current { display: flex; }
+.slide.dark {
+  background: var(--fx-dark);
+  color: #c8caca;
+}
+
+.slide-body {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: clamp(1.25rem, 3.6vh, 3.25rem) clamp(1.5rem, 4.5vw, 3.5rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100%;
+}
+
+/* ── Type ───────────────────────────────────────────────── */
+.eyebrow {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--fx-mute);
+  margin-bottom: 1.1rem;
+}
+.slide.dark .eyebrow { color: #a8aaaa; }
+
+.display {
+  font-family: var(--fx-display);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: var(--fx-ink);
+  line-height: 0.98;
+}
+.slide.dark .display { color: #fff; }
+
+.h-xl { font-size: clamp(2.8rem, 7.2vw, 5.4rem); max-width: 14ch; }
+.h-l  { font-size: clamp(2.15rem, 5vw, 3.6rem); max-width: 18ch; }
+.h-m  { font-size: clamp(1.65rem, 3.4vw, 2.35rem); max-width: 22ch; }
+
+.lede {
+  margin-top: 1.35rem;
+  font-size: 1.05rem;
+  line-height: 1.55;
+  max-width: 36em;
+  color: var(--fx-ink-soft);
+}
+.slide.dark .lede { color: #c8caca; }
+.lede em { font-style: italic; color: var(--fx-ink); }
+.slide.dark .lede em { color: #fff; }
+
+.display-lede {
+  margin-top: 1.35rem;
+  font-family: var(--fx-display);
+  font-size: clamp(1.45rem, 3.2vw, 2.15rem);
+  letter-spacing: -0.02em;
+  line-height: 1.12;
+  color: var(--fx-ink);
+  max-width: 20em;
+}
+
+.mt { margin-top: 1.1rem; }
+
+.list-block {
+  margin-top: 1.75rem;
+  padding: 1.15rem 0;
+  border-top: 1px solid var(--fx-line);
+  border-bottom: 1px solid var(--fx-line);
+}
+
+.note {
+  margin-top: 1.75rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--fx-line);
+  font-size: 0.9rem;
+  color: var(--fx-ink-soft);
+  max-width: 40em;
+}
+.slide.dark .note { border-color: #3a3d3d; color: #c8caca; }
+
+/* ── Facts ──────────────────────────────────────────────── */
+.facts {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem 2rem;
+  margin-top: 2.75rem;
+}
+.facts div { border-top: 1px solid #3a3d3d; padding-top: 0.55rem; }
+.facts dd {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #fff;
+}
+
+/* ── Two columns ────────────────────────────────────────── */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem 3rem;
+  margin-top: 1.75rem;
+  padding: 1.15rem 0;
+  border-top: 1px solid var(--fx-line);
+  border-bottom: 1px solid var(--fx-line);
+}
+.col-h {
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--fx-mute);
+  margin: 0 0 0.65rem;
+}
+.dash {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.42rem;
+}
+.dash li {
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: var(--fx-ink-soft);
+  padding-left: 1.1rem;
+  position: relative;
+}
+.dash li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--fx-mute);
+}
+.dash .sub {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--fx-mute);
+  margin-top: 0.1rem;
+}
+
+/* ── Observation / chips / tags ─────────────────────────── */
+.observe {
+  margin-top: 1.75rem;
+  padding: 0.85rem 1rem;
+  background: var(--fx-rail);
+  border-radius: 6px;
+  font-size: 0.95rem;
+  color: var(--fx-ink);
+  line-height: 1.5;
+  max-width: 38em;
+}
+.observe .eyebrow { margin-bottom: 0.3rem; }
+
+.chip {
+  display: inline-block;
+  font-variant-numeric: tabular-nums;
+  font-size: 0.72rem;
+  color: var(--fx-ink);
+  background: var(--fx-rail);
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.tag {
+  display: inline-block;
+  font-family: var(--fx-mono);
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--fx-dark);
+  background: var(--fx-lime);
+  padding: 0.2rem 0.55rem;
+  border-radius: 3px;
+}
+.tag-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.85rem;
+  margin-top: 1.75rem;
+  font-size: 0.875rem;
+  color: var(--fx-ink-soft);
+}
+
+/* ── Stage mark ─────────────────────────────────────────── */
+.mark-row {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 1.1rem;
+}
+.mark {
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  background: var(--fx-dark);
+  color: var(--fx-lime);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+.mark span {
+  font-family: var(--fx-mono);
+  font-variant-numeric: tabular-nums;
+  font-size: 0.62rem;
+  letter-spacing: 0.05em;
+}
+.mark-label {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--fx-mute);
+}
+
+.head-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.35rem;
+}
+
+/* ── Timeline ───────────────────────────────────────────── */
+.timeline {
+  position: relative;
+  margin: 1.5rem 0 0 36px;
+}
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: -1px;
+  top: 0.4rem;
+  bottom: 0.4rem;
+  width: 1px;
+  background: var(--fx-line);
+}
+.t-item {
+  position: relative;
+  padding: 0 0 1.85rem 1.75rem;
+}
+.t-item:last-child { padding-bottom: 0; }
+.t-item .mark {
+  position: absolute;
+  left: -36px;
+  top: 0.15rem;
+}
+.t-title {
+  font-family: var(--fx-display);
+  font-size: clamp(1.35rem, 2.4vw, 1.75rem);
+  letter-spacing: -0.02em;
+  color: var(--fx-ink);
+  line-height: 1.1;
+}
+.t-body {
+  margin-top: 0.35rem;
+  font-size: 0.92rem;
+  line-height: 1.45;
+  color: var(--fx-ink-soft);
+  max-width: 36em;
+}
+
+/* ── Lock list ──────────────────────────────────────────── */
+.locks { margin-top: 1.5rem; display: flex; flex-direction: column; }
+.lock {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 1rem;
+  align-items: start;
+  padding: 0.85rem 0;
+  border-top: 1px solid var(--fx-line);
+}
+.lock:last-child { border-bottom: 1px solid var(--fx-line); }
+.lock p {
+  font-size: 1rem;
+  line-height: 1.45;
+  color: var(--fx-ink-soft);
+  padding-top: 0.2rem;
+}
+.lock em { font-style: italic; color: var(--fx-ink); }
+
+/* ── Price ──────────────────────────────────────────────── */
+.quotes { margin-top: 0.5rem; }
+.quote {
+  font-family: var(--fx-display);
+  font-size: clamp(1.45rem, 3vw, 2.05rem);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--fx-ink);
+  padding: 1.15rem 0;
+  border-top: 1px solid var(--fx-line);
+  max-width: 22em;
+}
+.quote:last-of-type { border-bottom: 1px solid var(--fx-line); }
+.mute {
+  margin-top: 1.25rem;
+  font-size: 0.8rem;
+  color: var(--fx-mute);
+}
+
+/* ── Close ──────────────────────────────────────────────── */
+.next-line {
+  margin-top: 2rem;
+  font-size: 1rem;
+  color: #c8caca;
+}
+.close-mark {
+  margin-top: 2.75rem;
+  font-family: var(--fx-display);
+  font-style: italic;
+  font-size: 1.65rem;
+  color: var(--fx-lime);
+  line-height: 1;
+}
+
+/* ── Footer ─────────────────────────────────────────────── */
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.65rem 1.75rem;
+  border-top: 1px solid var(--chrome-line);
+  font-size: 0.75rem;
+  color: var(--chrome-fg);
+}
+.footer-left { letter-spacing: 0.02em; }
+.footer-right {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+.counter { font-variant-numeric: tabular-nums; }
+.nav-btn {
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  color: var(--chrome-fg);
+  border: 1px solid var(--chrome-line);
+  border-radius: 3px;
+}
+.nav-btn:hover { color: var(--chrome-mark); background: var(--tab-hover); }
+.nav-btn:focus-visible,
+.tab:focus-visible { outline: 1px solid var(--fx-lime); outline-offset: 2px; }
+
+.deck { cursor: e-resize; }
+.deck.is-west { cursor: w-resize; }
+
+@media (max-width: 900px) {
+  .facts { grid-template-columns: 1fr 1fr; }
+  .grid-2 { grid-template-columns: 1fr; gap: 1.4rem; }
+  .tab-label { display: none; }
+  .tab { justify-content: center; padding: 0.65rem 0.3rem; }
+}
+
+@media print {
+  html, body { height: auto; background: #fff; }
+  body.on-dark { background: #fff; }
+  .app { display: block; height: auto; overflow: visible; }
+  .header, .tabs, .footer { display: none; }
+  .deck { position: static; }
+  .slide {
+    position: relative;
+    display: flex !important;
+    height: 100vh;
+    page-break-after: always;
+    break-after: page;
+  }
+  .slide:last-child { page-break-after: auto; }
+}
+</style>
+</head>
+<body class="on-dark">
+<div class="app">
+  <header class="header">
+    <p class="header-meta">Konfidensielt · 18. august 2026</p>
+    <p class="wordmark">Feelix</p>
+  </header>
+
+  <nav class="tabs" aria-label="Lysbilder">
+    <button class="tab active" data-go="0" type="button"><span class="tab-num">01</span><span class="tab-label">Forslag</span></button>
+    <button class="tab" data-go="1" type="button"><span class="tab-num">02</span><span class="tab-label">Relasjon</span></button>
+    <button class="tab" data-go="2" type="button"><span class="tab-num">03</span><span class="tab-label">Ikke dette</span></button>
+    <button class="tab" data-go="3" type="button"><span class="tab-num">04</span><span class="tab-label">Miljø</span></button>
+    <button class="tab" data-go="4" type="button"><span class="tab-num">05</span><span class="tab-label">Kohorten</span></button>
+    <button class="tab" data-go="5" type="button"><span class="tab-num">06</span><span class="tab-label">Omfang</span></button>
+    <button class="tab" data-go="6" type="button"><span class="tab-num">07</span><span class="tab-label">Finnes</span></button>
+    <button class="tab" data-go="7" type="button"><span class="tab-num">08</span><span class="tab-label">Bygges</span></button>
+    <button class="tab" data-go="8" type="button"><span class="tab-num">09</span><span class="tab-label">Deretter</span></button>
+    <button class="tab" data-go="9" type="button"><span class="tab-num">10</span><span class="tab-label">Låser</span></button>
+    <button class="tab" data-go="10" type="button"><span class="tab-num">11</span><span class="tab-label">Pris</span></button>
+    <button class="tab" data-go="11" type="button"><span class="tab-num">12</span><span class="tab-label">Neste</span></button>
+  </nav>
+
+  <main class="deck" id="deck">
+
+    <!-- 00 -->
+    <section class="slide dark is-current" data-i="0" id="s01">
+      <div class="slide-body">
+        <p class="eyebrow">Forslag · 18. august 2026</p>
+        <h1 class="display h-xl">Den nye bedriften først.</h1>
+        <p class="lede">Feelix får egen klinikkapp og egen metode. Kin er substratet under.</p>
+        <dl class="facts">
+          <div><dd>Første leveranse</dd></div>
+          <div><dd>Én bedrift, én gang</dd></div>
+          <div><dd>Ikke EasyPractice-exit</dd></div>
+          <div><dd>Ikke Kin-score</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- 01 -->
+    <section class="slide" data-i="1" id="s02">
+      <div class="slide-body">
+        <p class="eyebrow">Arbeidsdeling</p>
+        <h1 class="display h-l">Dere eier relasjonen.</h1>
+        <div class="grid-2">
+          <div>
+            <h2 class="col-h">Feelix</h2>
+            <ul class="dash">
+              <li>Metode</li>
+              <li>Flate</li>
+              <li>Merkevare</li>
+              <li>App Store-ansikt</li>
+              <li>Pasientforhold</li>
+            </ul>
+          </div>
+          <div>
+            <h2 class="col-h">Kin</h2>
+            <ul class="dash">
+              <li>Identitet</li>
+              <li>Formål</li>
+              <li>Journalrør</li>
+              <li>Revisjon</li>
+              <li>Tomme motorer<span class="sub">Booking, melding, skjema, forløp</span></li>
+            </ul>
+          </div>
+        </div>
+        <p class="note">Ingen tenant-fork. Kin-navnet er ikke på appen.</p>
+      </div>
+    </section>
+
+    <!-- 02 -->
+    <section class="slide" data-i="2" id="s03">
+      <div class="slide-body">
+        <p class="eyebrow">Ikke dette</p>
+        <h1 class="display h-l">Første leveranse er ikke et system.</h1>
+        <p class="display-lede">Det er at alle ansatte hos den nye bedriften kommer gjennom programmet én gang.</p>
+        <p class="lede">Og at Feelix kan se at det skjedde.</p>
+        <div class="tag-row">
+          <span class="tag">Fase 3</span>
+          <span>EasyPractice-exit er fase 3. Tripletex er fase 3.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 -->
+    <section class="slide" data-i="3" id="s04">
+      <div class="slide-body">
+        <div class="mark-row">
+          <div class="mark"><span>00</span></div>
+          <p class="mark-label">Fase 0</p>
+        </div>
+        <h1 class="display h-l">Eget miljø. Ellers er dere en kopi.</h1>
+        <p class="lede">Tenant fra token. Hardkodet tenant vekk. RLS. Eget Feelix-miljø.</p>
+        <p class="note">Dette er Kin-arbeid. Fase 1 kan ikke være deres før det er gjort.</p>
+      </div>
+    </section>
+
+    <!-- 04 -->
+    <section class="slide" data-i="4" id="s05">
+      <div class="slide-body">
+        <div class="head-row">
+          <div class="mark-row" style="margin-bottom:0">
+            <div class="mark"><span>01</span></div>
+            <p class="mark-label">Fase 1</p>
+          </div>
+          <span class="chip">Pilot</span>
+        </div>
+        <h1 class="display h-l mt">Denne bedriften. Én gang gjennom.</h1>
+        <div class="observe">
+          <span class="eyebrow">Observasjon</span>
+          Målet er ikke et klinikksystem. Målet er at kohorten kommer gjennom, og at dere (og ev. bedriften) kan se at det skjedde.
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 -->
+    <section class="slide" data-i="5" id="s06">
+      <div class="slide-body">
+        <p class="eyebrow">Fase 1</p>
+        <h1 class="display h-m">I omfang. Ikke i omfang.</h1>
+        <div class="grid-2">
+          <div>
+            <h2 class="col-h">I omfang</h2>
+            <ul class="dash">
+              <li>Onboarding via lenke<span class="sub">Ikke e-post eller SMS</span></li>
+              <li>Programmets besøk</li>
+              <li>Programmets målinger</li>
+              <li>Spørreskjema</li>
+              <li>Sikker melding i portal</li>
+              <li>Arbeidsliste</li>
+              <li>Aggregat uten individhelse til arbeidsgiver</li>
+            </ul>
+          </div>
+          <div>
+            <h2 class="col-h">Ikke i omfang</h2>
+            <ul class="dash">
+              <li>Tripletex</li>
+              <li>Venteliste</li>
+              <li>Rom</li>
+              <li>B2C-medlemskap</li>
+              <li>PriDok</li>
+              <li>NHN</li>
+              <li>EasyPractice-migrering</li>
+              <li>Full wearable-liste</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 -->
+    <section class="slide" data-i="6" id="s07">
+      <div class="slide-body">
+        <p class="eyebrow">Hva som finnes</p>
+        <h1 class="display h-l">Booking mangler ikke.</h1>
+        <div class="grid-2">
+          <div>
+            <h2 class="col-h">Allerede i drift, gjenbrukbart</h2>
+            <ul class="dash">
+              <li>Booking</li>
+              <li>Sikker melding</li>
+              <li>Skjemamotor</li>
+              <li>Forløpsmotor</li>
+              <li>Tynn bedrift</li>
+            </ul>
+          </div>
+          <div>
+            <h2 class="col-h">Wearables nå</h2>
+            <ul class="dash">
+              <li>Garmin</li>
+              <li>Polar</li>
+              <li>Suunto</li>
+              <li>Apple Health</li>
+            </ul>
+          </div>
+        </div>
+        <p class="note">Ikke Oura, Whoop, Fitbit eller Sibionics i fase 1. Under arbeid: tenant fra token.</p>
+      </div>
+    </section>
+
+    <!-- 07 -->
+    <section class="slide" data-i="7" id="s08">
+      <div class="slide-body">
+        <p class="eyebrow">Fase 1</p>
+        <h1 class="display h-m">Hva som bygges.</h1>
+        <div class="list-block">
+          <ul class="dash">
+            <li>Avtale på denne kohorten</li>
+            <li>k-gulv før aggregat ut av klinikken</li>
+            <li>Feelix-merket flate uten Kin-score</li>
+            <li>Arbeidsliste</li>
+            <li>Deres maler</li>
+          </ul>
+        </div>
+        <p class="note">Inntil k-gulv er aggregatet Feelix-internt. Bedriftsadmin ser aldri journal, måling, skjema-svar eller melding.</p>
+      </div>
+    </section>
+
+    <!-- 08 -->
+    <section class="slide" data-i="8" id="s09">
+      <div class="slide-body">
+        <p class="eyebrow">Etter fase 1</p>
+        <h1 class="display h-m">Deretter.</h1>
+        <div class="timeline">
+          <div class="t-item">
+            <div class="mark"><span>02</span></div>
+            <h2 class="t-title">B2C</h2>
+            <p class="t-body">Avtalen som objekt. Resten av kundebasen.</p>
+          </div>
+          <div class="t-item">
+            <div class="mark"><span>03</span></div>
+            <h2 class="t-title">Admin, Tripletex, grupper</h2>
+            <p class="t-body">Først nå er EasyPractice-exit ærlig.</p>
+          </div>
+          <div class="t-item">
+            <div class="mark"><span>04</span></div>
+            <h2 class="t-title">Vekst og engagement</h2>
+            <p class="t-body">Feelix-forfattet. Kin sender ikke score eller protokoll.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 09 -->
+    <section class="slide" data-i="9" id="s10">
+      <div class="slide-body">
+        <p class="eyebrow">Møtet</p>
+        <h1 class="display h-m">Møtet låser.</h1>
+        <div class="locks">
+          <div class="lock">
+            <div class="mark"><span>1</span></div>
+            <p>Fase 1 er en navngitt bedrift, én gang. Ikke A–D.</p>
+          </div>
+          <div class="lock">
+            <div class="mark"><span>2</span></div>
+            <p>Kort liste: alle besøk og alle målinger i <em>dette</em> programmet.</p>
+          </div>
+          <div class="lock">
+            <div class="mark"><span>3</span></div>
+            <p>Får bedriften se aggregat, eller bare Feelix. (k-gulv)</p>
+          </div>
+          <div class="lock">
+            <div class="mark"><span>4</span></div>
+            <p>Hvilket skjema, hvilke 2–3 datakilder. Ingen Kin-score.</p>
+          </div>
+          <div class="lock">
+            <div class="mark"><span>5</span></div>
+            <p>Onboarding uten e-post eller SMS. Lenke duger.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10 -->
+    <section class="slide" data-i="10" id="s11">
+      <div class="slide-body">
+        <p class="eyebrow">Hvis dere spør om pris</p>
+        <div class="quotes">
+          <p class="quote">For denne bedriften: 50k for å stå dere opp og kjøre kohorten én gang.</p>
+          <p class="quote">Etter at det løpet kjører: 10 % av det appen faktisk driver.</p>
+          <p class="quote">Ikke blod, DNA, utstyr, eller bok som lever utenfor.</p>
+        </div>
+        <p class="mute">Neste bedrift er ikke automatisk 50k.</p>
+      </div>
+    </section>
+
+    <!-- 11 -->
+    <section class="slide dark" data-i="11" id="s12">
+      <div class="slide-body">
+        <h1 class="display h-xl">Én bedrift. Én gang. Deretter deres system.</h1>
+        <p class="next-line">Neste: lås programmets besøk og målinger.</p>
+        <p class="close-mark">Feelix</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p class="footer-left">Feelix · Kin</p>
+    <div class="footer-right">
+      <button class="nav-btn" type="button" data-step="-1" aria-label="Forrige">‹</button>
+      <span class="counter" id="counter">01 / 12</span>
+      <button class="nav-btn" type="button" data-step="1" aria-label="Neste">›</button>
+    </div>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var slides = Array.prototype.slice.call(document.querySelectorAll(".slide"));
+  var tabs = Array.prototype.slice.call(document.querySelectorAll(".tab"));
+  var counter = document.getElementById("counter");
+  var n = slides.length;
+  var i = 0;
+
+  function pad(x) {
+    return String(x + 1).padStart(2, "0");
+  }
+
+  function paint() {
+    slides.forEach(function (s, idx) { s.classList.toggle("is-current", idx === i); });
+    tabs.forEach(function (t, idx) { t.classList.toggle("active", idx === i); });
+    document.body.classList.toggle("on-dark", slides[i].classList.contains("dark"));
+    counter.textContent = pad(i) + " / " + pad(n - 1);
+    var h = "#" + pad(i);
+    if (location.hash !== h) history.replaceState(null, "", h);
+  }
+
+  function go(next) {
+    if (next < 0) next = 0;
+    if (next > n - 1) next = n - 1;
+    i = next;
+    paint();
+  }
+
+  function fromHash() {
+    var raw = (location.hash || "").replace("#", "");
+    var num = parseInt(raw, 10);
+    if (num >= 1 && num <= n) go(num - 1);
+    else go(i);
+  }
+
+  document.addEventListener("keydown", function (e) {
+    if (e.defaultPrevented) return;
+    var k = e.key;
+    if (k === "ArrowRight" || k === "ArrowDown" || k === " " || k === "Spacebar" || k === "j") {
+      e.preventDefault();
+      go(i + 1);
+    } else if (k === "ArrowLeft" || k === "ArrowUp" || k === "k") {
+      e.preventDefault();
+      go(i - 1);
+    } else if (k === "Home") {
+      e.preventDefault();
+      go(0);
+    } else if (k === "End") {
+      e.preventDefault();
+      go(n - 1);
+    }
+  });
+
+  document.querySelectorAll("[data-go]").forEach(function (el) {
+    el.addEventListener("click", function (e) {
+      e.stopPropagation();
+      go(parseInt(el.getAttribute("data-go"), 10));
+    });
+  });
+
+  document.querySelectorAll("[data-step]").forEach(function (el) {
+    el.addEventListener("click", function (e) {
+      e.stopPropagation();
+      go(i + parseInt(el.getAttribute("data-step"), 10));
+    });
+  });
+
+  var deck = document.getElementById("deck");
+  deck.addEventListener("click", function (e) {
+    if (e.target.closest("a, button, .tab")) return;
+    var sel = window.getSelection && String(window.getSelection());
+    if (sel) return;
+    var r = deck.getBoundingClientRect();
+    if ((e.clientX - r.left) < r.width * 0.2) go(i - 1);
+    else go(i + 1);
+  });
+  deck.addEventListener("mousemove", function (e) {
+    var r = deck.getBoundingClientRect();
+    deck.classList.toggle("is-west", (e.clientX - r.left) < r.width * 0.2);
+  });
+
+  window.addEventListener("hashchange", fromHash);
+  fromHash();
+})();
+</script>
+</body>
+</html>
