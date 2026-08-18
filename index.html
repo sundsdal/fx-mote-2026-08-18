@@ -667,6 +667,228 @@ body.on-dark .tab.active {
 .deck { cursor: e-resize; }
 .deck.is-west { cursor: w-resize; }
 
+
+/* Demo portal */
+.slide-body.demo-body {
+  max-width: 1180px;
+  justify-content: flex-start;
+  padding-top: clamp(0.7rem, 1.6vh, 1.2rem);
+  padding-bottom: 0.6rem;
+}
+.demo {
+  margin-top: 0.7rem;
+  border: 1px solid var(--fx-line);
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--fx-page);
+  cursor: default;
+}
+.demo-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.7rem 1.1rem;
+  background: var(--fx-dark);
+  color: #c8caca;
+}
+.demo-bar .wordmark { color: var(--fx-beige); font-size: 1.15rem; }
+.demo-bar .who { font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: #a8aaaa; }
+.demo-steps {
+  display: flex;
+  border-bottom: 1px solid var(--fx-line);
+  overflow-x: auto;
+}
+.demo-steps button {
+  flex: 1;
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  padding: 0.65rem 0.7rem;
+  border-right: 1px solid var(--fx-line);
+  color: var(--fx-mute);
+}
+.demo-steps button:hover { background: var(--fx-beige); color: var(--fx-ink); }
+.demo-steps button.is-on {
+  background: var(--fx-dark);
+  color: var(--fx-lime);
+}
+.demo-steps .n {
+  font-family: var(--fx-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.06em;
+}
+.demo-steps .l {
+  font-family: var(--fx-display);
+  font-size: 0.95rem;
+}
+.d-stage { position: relative; min-height: 390px; background: var(--fx-page); }
+.d-screen { display: none; padding: 1.15rem 1.35rem 1.25rem; }
+.d-screen.is-on { display: block; }
+.d-kicker {
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fx-mute);
+  margin-bottom: 0.55rem;
+}
+.d-title {
+  font-family: var(--fx-display);
+  font-size: clamp(1.7rem, 3.2vw, 2.4rem);
+  letter-spacing: -0.02em;
+  line-height: 1.02;
+  color: var(--fx-ink);
+  max-width: 16ch;
+}
+.d-lede {
+  margin-top: 0.7rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--fx-ink-soft);
+  max-width: 36em;
+}
+.d-actions { margin-top: 1.25rem; display: flex; gap: 0.6rem; flex-wrap: wrap; }
+.d-btn {
+  font-size: 0.9rem;
+  padding: 0.625rem 1rem;
+  background: #111;
+  color: #fff;
+  border-radius: 9px;
+}
+.d-btn:hover { background: #2a2a2a; }
+.d-btn.ghost {
+  background: transparent;
+  color: var(--fx-ink);
+  box-shadow: inset 0 0 0 1px var(--fx-line);
+}
+.d-q { margin-top: 1rem; }
+.d-q + .d-q { margin-top: 1.15rem; padding-top: 1rem; border-top: 1px solid var(--fx-line); }
+.d-q h3 {
+  font-family: var(--fx-display);
+  font-size: 1.2rem;
+  letter-spacing: -0.015em;
+  color: var(--fx-ink);
+  margin-bottom: 0.55rem;
+}
+.d-chips { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.d-chip {
+  font-size: 0.85rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+  background: var(--fx-rail);
+  color: var(--fx-ink);
+}
+.d-chip:hover { background: var(--fx-beige); }
+.d-chip.is-on { background: var(--fx-dark); color: var(--fx-lime); }
+.d-days {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.4rem;
+  margin: 0.85rem 0 1rem;
+}
+.d-day {
+  border: 1px solid var(--fx-line);
+  border-radius: 6px;
+  padding: 0.45rem 0.3rem;
+  text-align: center;
+  font-size: 0.78rem;
+}
+.d-day.is-on { background: var(--fx-dark); color: #fff; border-color: var(--fx-dark); }
+.d-day small { display: block; color: var(--fx-mute); font-size: 0.62rem; letter-spacing: 0.06em; text-transform: uppercase; }
+.d-day.is-on small { color: #a8aaaa; }
+.d-slots { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.d-slot {
+  min-width: 4.4rem;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  font-size: 0.85rem;
+  padding: 0.4rem 0.55rem;
+  border: 1px solid var(--fx-line);
+  border-radius: 6px;
+  color: var(--fx-ink);
+}
+.d-slot.is-on { background: var(--fx-lime); border-color: var(--fx-lime); color: var(--fx-dark); }
+.d-slot.is-off { color: #bbb; background: var(--fx-rail); pointer-events: none; }
+.d-thread { display: flex; flex-direction: column; gap: 0.75rem; max-height: 280px; overflow: auto; }
+.d-msg {
+  padding: 0.75rem 0.85rem;
+  background: var(--fx-rail);
+  border-radius: 6px;
+}
+.d-msg.from-clinic { background: var(--fx-beige); }
+.d-msg .when {
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fx-mute);
+  margin-bottom: 0.3rem;
+}
+.d-msg p { font-size: 0.88rem; line-height: 1.45; color: var(--fx-ink); }
+.d-compose {
+  margin-top: 0.85rem;
+  display: flex;
+  gap: 0.5rem;
+}
+.d-compose input {
+  flex: 1;
+  font: inherit;
+  font-size: 0.9rem;
+  padding: 0.625rem 0.85rem;
+  border: 1px solid #d4d4d4;
+  border-radius: 9px;
+  color: #111;
+}
+.d-compose input:focus { border-color: #111; box-shadow: 0 0 0 3px rgba(0,0,0,.06); outline: none; }
+.d-pillars {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.55rem;
+  margin-top: 0.9rem;
+}
+.d-pillar {
+  border-top: 1px solid var(--fx-line);
+  padding-top: 0.45rem;
+}
+.d-pillar .pn {
+  font-family: var(--fx-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.08em;
+  color: var(--fx-mute);
+}
+.d-pillar h3 {
+  font-family: var(--fx-display);
+  font-size: 1.02rem;
+  color: var(--fx-ink);
+  letter-spacing: -0.02em;
+  margin: 0.15rem 0 0.25rem;
+}
+.d-pillar .pv {
+  font-variant-numeric: tabular-nums;
+  font-size: 1.15rem;
+  color: var(--fx-ink);
+}
+.d-pillar .ps { font-size: 0.72rem; color: var(--fx-mute); line-height: 1.35; margin-top: 0.2rem; }
+.d-narr {
+  margin-top: 0.95rem;
+  padding: 0.75rem 0.9rem;
+  background: var(--fx-beige);
+  border-radius: 6px;
+  font-size: 0.86rem;
+  line-height: 1.45;
+  color: var(--fx-ink);
+}
+.d-next {
+  margin-top: 0.7rem;
+  font-size: 0.82rem;
+  color: var(--fx-ink-soft);
+}
+.d-next strong { color: var(--fx-ink); font-weight: 600; }
+
+@media (max-width: 900px) {
+  .d-pillars { grid-template-columns: 1fr 1fr; }
+  .demo-steps .l { display: none; }
+}
+
 @media (max-width: 900px) {
   .facts { grid-template-columns: 1fr 1fr; }
   .grid-2, .split, .seq, .path, .stack-pills { grid-template-columns: 1fr 1fr; }
@@ -707,14 +929,15 @@ body.on-dark .tab.active {
     <button class="tab active" data-go="0" type="button"><span class="tab-num">01</span><span class="tab-label">Forslag</span></button>
     <button class="tab" data-go="1" type="button"><span class="tab-num">02</span><span class="tab-label">Oppå Kin</span></button>
     <button class="tab" data-go="2" type="button"><span class="tab-num">03</span><span class="tab-label">Reisen</span></button>
-    <button class="tab" data-go="3" type="button"><span class="tab-num">04</span><span class="tab-label">Rekkefølge</span></button>
-    <button class="tab" data-go="4" type="button"><span class="tab-num">05</span><span class="tab-label">Miljø</span></button>
-    <button class="tab" data-go="5" type="button"><span class="tab-num">06</span><span class="tab-label">Pilot</span></button>
-    <button class="tab" data-go="6" type="button"><span class="tab-num">07</span><span class="tab-label">Omfang</span></button>
-    <button class="tab" data-go="7" type="button"><span class="tab-num">08</span><span class="tab-label">Står</span></button>
-    <button class="tab" data-go="8" type="button"><span class="tab-num">09</span><span class="tab-label">I møtet</span></button>
-    <button class="tab" data-go="9" type="button"><span class="tab-num">10</span><span class="tab-label">Pris</span></button>
-    <button class="tab" data-go="10" type="button"><span class="tab-num">11</span><span class="tab-label">Neste</span></button>
+    <button class="tab" data-go="3" type="button"><span class="tab-num">04</span><span class="tab-label">Demo</span></button>
+    <button class="tab" data-go="4" type="button"><span class="tab-num">05</span><span class="tab-label">Rekkefølge</span></button>
+    <button class="tab" data-go="5" type="button"><span class="tab-num">06</span><span class="tab-label">Miljø</span></button>
+    <button class="tab" data-go="6" type="button"><span class="tab-num">07</span><span class="tab-label">Pilot</span></button>
+    <button class="tab" data-go="7" type="button"><span class="tab-num">08</span><span class="tab-label">Omfang</span></button>
+    <button class="tab" data-go="8" type="button"><span class="tab-num">09</span><span class="tab-label">Står</span></button>
+    <button class="tab" data-go="9" type="button"><span class="tab-num">10</span><span class="tab-label">I møtet</span></button>
+    <button class="tab" data-go="10" type="button"><span class="tab-num">11</span><span class="tab-label">Pris</span></button>
+    <button class="tab" data-go="11" type="button"><span class="tab-num">12</span><span class="tab-label">Neste</span></button>
   </nav>
 
   <main class="deck" id="deck">
@@ -807,7 +1030,182 @@ body.on-dark .tab.active {
       </div>
     </section>
 
+
     <section class="slide" data-i="3" id="s04">
+      <div class="slide-body demo-body">
+        <p class="eyebrow">Minidemo · klikk deg gjennom</p>
+        <div class="demo" id="demo">
+          <div class="demo-bar">
+            <p class="wordmark">Feelix</p>
+            <p class="who">På vegne av Eksempelbedriften AS</p>
+          </div>
+          <div class="demo-steps">
+            <button type="button" data-demo-go="0" class="is-on"><span class="n">01</span><span class="l">Velkommen</span></button>
+            <button type="button" data-demo-go="1"><span class="n">02</span><span class="l">Skjema</span></button>
+            <button type="button" data-demo-go="2"><span class="n">03</span><span class="l">Time</span></button>
+            <button type="button" data-demo-go="3"><span class="n">04</span><span class="l">Melding</span></button>
+            <button type="button" data-demo-go="4"><span class="n">05</span><span class="l">Dashboard</span></button>
+          </div>
+          <div class="d-stage">
+
+            <div class="d-screen is-on" data-demo="0">
+              <p class="d-kicker">Invitasjon</p>
+              <h2 class="d-title">Velkommen til Feelix.</h2>
+              <p class="d-lede">På vegne av Eksempelbedriften AS. Du er med i bedriftens program. Ingen app å laste ned. Ingen klokke å koble på.</p>
+              <div class="d-actions">
+                <button class="d-btn" type="button" data-demo-go="1">Kom i gang</button>
+              </div>
+            </div>
+
+            <div class="d-screen" data-demo="1">
+              <p class="d-kicker">Spørreskjema · fire spørsmål</p>
+              <div class="d-q">
+                <h3>Hvordan har søvnen vært de siste to ukene?</h3>
+                <div class="d-chips">
+                  <button class="d-chip" type="button">Stabil</button>
+                  <button class="d-chip is-on" type="button">Ujevn</button>
+                  <button class="d-chip" type="button">Dårlig</button>
+                </div>
+              </div>
+              <div class="d-q">
+                <h3>Hvor mange dager beveger du deg minst 30 minutter?</h3>
+                <div class="d-chips">
+                  <button class="d-chip" type="button">0–1</button>
+                  <button class="d-chip is-on" type="button">2–3</button>
+                  <button class="d-chip" type="button">4 eller mer</button>
+                </div>
+              </div>
+              <div class="d-q">
+                <h3>Stress på jobb akkurat nå?</h3>
+                <div class="d-chips">
+                  <button class="d-chip" type="button">Lavt</button>
+                  <button class="d-chip is-on" type="button">Håndterbart</button>
+                  <button class="d-chip" type="button">Høyt</button>
+                </div>
+              </div>
+              <div class="d-q">
+                <h3>Hva skal legen ta tak i først?</h3>
+                <div class="d-chips">
+                  <button class="d-chip is-on" type="button">Søvn</button>
+                  <button class="d-chip" type="button">Energi</button>
+                  <button class="d-chip" type="button">Kost</button>
+                  <button class="d-chip" type="button">Vet ikke</button>
+                </div>
+              </div>
+              <div class="d-actions">
+                <button class="d-btn ghost" type="button" data-demo-go="0">Tilbake</button>
+                <button class="d-btn" type="button" data-demo-go="2">Book time</button>
+              </div>
+            </div>
+
+            <div class="d-screen" data-demo="2">
+              <p class="d-kicker">Oppstartssamtale · 45 min · Feelix-klinikk</p>
+              <h2 class="d-title">Velg en tid.</h2>
+              <div class="d-days">
+                <button class="d-day" type="button"><small>Man</small>20</button>
+                <button class="d-day" type="button"><small>Tir</small>21</button>
+                <button class="d-day is-on" type="button"><small>Ons</small>22</button>
+                <button class="d-day" type="button"><small>Tor</small>23</button>
+                <button class="d-day" type="button"><small>Fre</small>24</button>
+              </div>
+              <p class="d-kicker">Formiddag</p>
+              <div class="d-slots">
+                <button class="d-slot is-off" type="button">08:00</button>
+                <button class="d-slot is-off" type="button">08:30</button>
+                <button class="d-slot is-on" type="button">09:00</button>
+                <button class="d-slot" type="button">09:30</button>
+                <button class="d-slot" type="button">10:00</button>
+                <button class="d-slot is-off" type="button">10:30</button>
+                <button class="d-slot" type="button">11:00</button>
+              </div>
+              <p class="d-kicker" style="margin-top:0.9rem">Ettermiddag</p>
+              <div class="d-slots">
+                <button class="d-slot" type="button">14:00</button>
+                <button class="d-slot" type="button">14:30</button>
+                <button class="d-slot is-off" type="button">15:00</button>
+                <button class="d-slot" type="button">15:30</button>
+                <button class="d-slot" type="button">16:00</button>
+              </div>
+              <div class="d-actions">
+                <button class="d-btn ghost" type="button" data-demo-go="1">Tilbake</button>
+                <button class="d-btn" type="button" data-demo-go="3">Bekreft onsdag 09:00</button>
+              </div>
+            </div>
+
+            <div class="d-screen" data-demo="3">
+              <p class="d-kicker">Sikker melding · journal, ikke chat</p>
+              <div class="d-thread">
+                <div class="d-msg from-clinic">
+                  <p class="when">Feelix · 12. mai</p>
+                  <p>Velkommen inn. Skjemaet ditt er lest. Vi tar søvn først i samtalen onsdag. Ta med det du bruker av medisiner — vann er ok om morgenen.</p>
+                </div>
+                <div class="d-msg">
+                  <p class="when">Deg · 12. mai</p>
+                  <p>Takk. Innsovning har vært 20–30 min den siste uken. Jeg tar med listen.</p>
+                </div>
+                <div class="d-msg from-clinic">
+                  <p class="when">Feelix · 13. mai</p>
+                  <p>Notert. Ingen nye tall før vi har snakket. Onsdag 09:00, Sørkedalsveien 10C.</p>
+                </div>
+              </div>
+              <div class="d-compose">
+                <input type="text" placeholder="Skriv en melding…" aria-label="Melding">
+                <button class="d-btn" type="button">Send</button>
+              </div>
+              <div class="d-actions">
+                <button class="d-btn ghost" type="button" data-demo-go="2">Tilbake</button>
+                <button class="d-btn" type="button" data-demo-go="4">Se dashboard</button>
+              </div>
+            </div>
+
+            <div class="d-screen" data-demo="4">
+              <p class="d-kicker">Anna Holm · Eksempelbedriften AS · uke 3</p>
+              <h2 class="d-title">Slik leser legen deg.</h2>
+              <div class="d-pillars">
+                <div class="d-pillar">
+                  <p class="pn">01</p>
+                  <h3>Søvn</h3>
+                  <p class="pv">Ujevn</p>
+                  <p class="ps">Innsovning 20–30 min. Der vi starter.</p>
+                </div>
+                <div class="d-pillar">
+                  <p class="pn">02</p>
+                  <h3>Aktivitet</h3>
+                  <p class="pv">2–3 d</p>
+                  <p class="ps">Bevegelse finnes. Ikke volumet ennå.</p>
+                </div>
+                <div class="d-pillar">
+                  <p class="pn">03</p>
+                  <h3>Ernæring</h3>
+                  <p class="pv">Åpent</p>
+                  <p class="ps">Tas i samtalen. Ingen lab i piloten.</p>
+                </div>
+                <div class="d-pillar">
+                  <p class="pn">04</p>
+                  <h3>Stress</h3>
+                  <p class="pv">Håndterbart</p>
+                  <p class="ps">Formiddagstopper på møtedager.</p>
+                </div>
+                <div class="d-pillar">
+                  <p class="pn">05</p>
+                  <h3>Livsstil</h3>
+                  <p class="pv">Tre vaner</p>
+                  <p class="ps">Det de selv vil holde.</p>
+                </div>
+              </div>
+              <p class="d-narr">Fem hjørnesteiner, ikke femti tall. Hvert neste steg er fra legen i samtalen. Ingen badges, ingen klokke, ingen Kin-score.</p>
+              <p class="d-next"><strong>Neste steg.</strong> Behold mørkleggingsrutinen. Vi tar søvn først onsdag.</p>
+              <div class="d-actions">
+                <button class="d-btn ghost" type="button" data-demo-go="0">Start på nytt</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-i="4" id="s05">
       <div class="slide-body">
         <p class="eyebrow">Leveranse</p>
         <h1 class="display h-m">I denne rekkefølgen.</h1>
@@ -846,7 +1244,7 @@ body.on-dark .tab.active {
       </div>
     </section>
 
-    <section class="slide" data-i="4" id="s05">
+    <section class="slide" data-i="5" id="s06">
       <div class="slide-body">
         <div class="mark-row">
           <div class="mark"><span>00</span></div>
@@ -858,7 +1256,7 @@ body.on-dark .tab.active {
       </div>
     </section>
 
-    <section class="slide" data-i="5" id="s06">
+    <section class="slide" data-i="6" id="s07">
       <div class="slide-body">
         <div class="head-row">
           <div class="mark-row" style="margin-bottom:0">
@@ -889,7 +1287,7 @@ body.on-dark .tab.active {
       </div>
     </section>
 
-    <section class="slide" data-i="6" id="s07">
+    <section class="slide" data-i="7" id="s08">
       <div class="slide-body">
         <p class="eyebrow">Piloten</p>
         <h1 class="display h-m">I omfang. Ikke i omfang.</h1>
@@ -920,7 +1318,7 @@ body.on-dark .tab.active {
       </div>
     </section>
 
-    <section class="slide" data-i="7" id="s08">
+    <section class="slide" data-i="8" id="s09">
       <div class="slide-body">
         <p class="eyebrow">Flaten</p>
         <h1 class="display h-m">Hva som står, og hva vi setter på.</h1>
@@ -948,7 +1346,7 @@ body.on-dark .tab.active {
       </div>
     </section>
 
-    <section class="slide" data-i="8" id="s09">
+    <section class="slide" data-i="9" id="s10">
       <div class="slide-body">
         <p class="eyebrow">I dette møtet</p>
         <h1 class="display h-m">Det vi trenger å bli enige om.</h1>
@@ -977,7 +1375,7 @@ body.on-dark .tab.active {
       </div>
     </section>
 
-    <section class="slide" data-i="9" id="s10">
+    <section class="slide" data-i="10" id="s11">
       <div class="slide-body">
         <p class="eyebrow">Hvis dere spør om pris</p>
         <div class="quotes">
@@ -989,7 +1387,7 @@ body.on-dark .tab.active {
       </div>
     </section>
 
-    <section class="slide dark" data-i="10" id="s11">
+    <section class="slide dark" data-i="11" id="s12">
       <div class="slide-body">
         <h1 class="display h-xl">Denne bedriften. Deretter deres system.</h1>
         <p class="next-line">Neste: hvilket skjema, og hva dashboardet viser.</p>
@@ -1038,9 +1436,11 @@ body.on-dark .tab.active {
 
   function fromHash() {
     var raw = (location.hash || "").replace("#", "");
-    var num = parseInt(raw, 10);
+    var parts = raw.split("-");
+    var num = parseInt(parts[0], 10);
     if (num >= 1 && num <= n) go(num - 1);
     else go(i);
+    if (parts[1] && window.__showDemo) window.__showDemo(parseInt(parts[1], 10));
   }
 
   document.addEventListener("keydown", function (e) {
@@ -1077,7 +1477,7 @@ body.on-dark .tab.active {
 
   var deck = document.getElementById("deck");
   deck.addEventListener("click", function (e) {
-    if (e.target.closest("a, button, .tab")) return;
+    if (e.target.closest("a, button, .tab, .demo")) return;
     var sel = window.getSelection && String(window.getSelection());
     if (sel) return;
     var r = deck.getBoundingClientRect();
@@ -1090,6 +1490,39 @@ body.on-dark .tab.active {
   });
 
   window.addEventListener("hashchange", fromHash);
+
+  var demo = document.getElementById("demo");
+  if (demo) {
+    var screens = Array.prototype.slice.call(demo.querySelectorAll(".d-screen"));
+    var steps = Array.prototype.slice.call(demo.querySelectorAll(".demo-steps [data-demo-go]"));
+    window.__showDemo = function showDemo(n) {
+      if (n < 0) n = 0;
+      if (n > screens.length - 1) n = screens.length - 1;
+      screens.forEach(function (s, idx) { s.classList.toggle("is-on", idx === n); });
+      steps.forEach(function (b) { b.classList.toggle("is-on", parseInt(b.getAttribute("data-demo-go"), 10) === n); });
+    }
+    demo.addEventListener("click", function (e) {
+      e.stopPropagation();
+      var go = e.target.closest("[data-demo-go]");
+      if (go) showDemo(parseInt(go.getAttribute("data-demo-go"), 10));
+      var chip = e.target.closest(".d-chip");
+      if (chip) {
+        chip.parentElement.querySelectorAll(".d-chip").forEach(function (c) { c.classList.remove("is-on"); });
+        chip.classList.add("is-on");
+      }
+      var day = e.target.closest(".d-day");
+      if (day) {
+        demo.querySelectorAll(".d-day").forEach(function (d) { d.classList.remove("is-on"); });
+        day.classList.add("is-on");
+      }
+      var slot = e.target.closest(".d-slot");
+      if (slot && !slot.classList.contains("is-off")) {
+        demo.querySelectorAll(".d-slot").forEach(function (s) { s.classList.remove("is-on"); });
+        slot.classList.add("is-on");
+      }
+    });
+  }
+
   fromHash();
 })();
 </script>
