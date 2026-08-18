@@ -96,7 +96,6 @@ body.on-dark {
   --tab-hover: #323535;
 }
 
-/* ── Header ─────────────────────────────────────────────── */
 .header {
   display: flex;
   align-items: center;
@@ -114,7 +113,6 @@ body.on-dark {
   line-height: 1;
 }
 
-/* ── Tabs ───────────────────────────────────────────────── */
 .tabs {
   display: flex;
   border-top: 1px solid var(--chrome-line);
@@ -161,7 +159,6 @@ body.on-dark .tab.active {
   text-overflow: ellipsis;
 }
 
-/* ── Slides ─────────────────────────────────────────────── */
 .deck { position: relative; min-height: 0; }
 .slide {
   position: absolute;
@@ -180,14 +177,13 @@ body.on-dark .tab.active {
   width: 100%;
   max-width: 1120px;
   margin: 0 auto;
-  padding: clamp(1.25rem, 3.6vh, 3.25rem) clamp(1.5rem, 4.5vw, 3.5rem);
+  padding: clamp(1.1rem, 3.2vh, 2.8rem) clamp(1.5rem, 4.5vw, 3.5rem);
   display: flex;
   flex-direction: column;
   justify-content: center;
   min-height: 100%;
 }
 
-/* ── Type ───────────────────────────────────────────────── */
 .eyebrow {
   font-size: 0.68rem;
   text-transform: uppercase;
@@ -233,24 +229,16 @@ body.on-dark .tab.active {
 
 .mt { margin-top: 1.1rem; }
 
-.list-block {
-  margin-top: 1.75rem;
-  padding: 1.15rem 0;
-  border-top: 1px solid var(--fx-line);
-  border-bottom: 1px solid var(--fx-line);
-}
-
 .note {
-  margin-top: 1.75rem;
+  margin-top: 1.5rem;
   padding-top: 0.85rem;
   border-top: 1px solid var(--fx-line);
   font-size: 0.9rem;
   color: var(--fx-ink-soft);
-  max-width: 40em;
+  max-width: 42em;
 }
 .slide.dark .note { border-color: #3a3d3d; color: #c8caca; }
 
-/* ── Facts ──────────────────────────────────────────────── */
 .facts {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -258,13 +246,8 @@ body.on-dark .tab.active {
   margin-top: 2.75rem;
 }
 .facts div { border-top: 1px solid #3a3d3d; padding-top: 0.55rem; }
-.facts dd {
-  margin: 0;
-  font-size: 0.95rem;
-  color: #fff;
-}
+.facts dd { margin: 0; font-size: 0.95rem; color: #fff; }
 
-/* ── Two columns ────────────────────────────────────────── */
 .grid-2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -308,9 +291,8 @@ body.on-dark .tab.active {
   margin-top: 0.1rem;
 }
 
-/* ── Observation / chips / tags ─────────────────────────── */
 .observe {
-  margin-top: 1.75rem;
+  margin-top: 1.5rem;
   padding: 0.85rem 1rem;
   background: var(--fx-rail);
   border-radius: 6px;
@@ -330,6 +312,10 @@ body.on-dark .tab.active {
   padding: 0.3rem 0.65rem;
   border-radius: 999px;
   white-space: nowrap;
+}
+.chip-lime {
+  background: var(--fx-lime);
+  color: var(--fx-dark);
 }
 .tag {
   display: inline-block;
@@ -351,7 +337,6 @@ body.on-dark .tab.active {
   color: var(--fx-ink-soft);
 }
 
-/* ── Stage mark ─────────────────────────────────────────── */
 .mark-row {
   display: flex;
   align-items: center;
@@ -367,6 +352,7 @@ body.on-dark .tab.active {
   display: grid;
   place-items: center;
   flex-shrink: 0;
+  box-shadow: 0 0 0 6px #fff;
 }
 .mark span {
   font-family: var(--fx-mono);
@@ -380,7 +366,6 @@ body.on-dark .tab.active {
   letter-spacing: 0.1em;
   color: var(--fx-mute);
 }
-
 .head-row {
   display: flex;
   align-items: baseline;
@@ -389,65 +374,228 @@ body.on-dark .tab.active {
   margin-bottom: 0.35rem;
 }
 
-/* ── Timeline ───────────────────────────────────────────── */
-.timeline {
-  position: relative;
-  margin: 1.5rem 0 0 36px;
+/* Stack: Feelix on Kin */
+.stack {
+  margin-top: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
 }
-.timeline::before {
+.stack-layer {
+  border: 1px solid var(--fx-line);
+  padding: 1.15rem 1.4rem 1.25rem;
+}
+.stack-feelix {
+  background: var(--fx-beige);
+  border-radius: 14px 14px 0 0;
+}
+.stack-kin {
+  background: var(--fx-dark);
+  border-color: #3a3d3d;
+  border-radius: 0 0 14px 14px;
+  color: #c8caca;
+}
+.stack-who {
+  font-family: var(--fx-display);
+  font-style: italic;
+  font-size: 1.35rem;
+  line-height: 1;
+  color: var(--fx-ink);
+  margin-bottom: 0.85rem;
+}
+.stack-kin .stack-who { color: var(--fx-lime); }
+.stack-pills {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.55rem;
+  list-style: none;
+}
+.stack-pills li {
+  border-top: 1px solid rgba(0,0,0,.12);
+  padding-top: 0.45rem;
+  font-size: 0.92rem;
+  color: var(--fx-ink);
+}
+.stack-kin .stack-pills li {
+  border-top-color: #3a3d3d;
+  color: #fff;
+}
+.stack-pills small {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: 0.72rem;
+  color: var(--fx-mute);
+}
+.stack-kin .stack-pills small { color: #a8aaaa; }
+.stack-join {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.35rem 1.4rem;
+  background: var(--fx-page);
+  border-left: 1px solid var(--fx-line);
+  border-right: 1px solid var(--fx-line);
+  color: var(--fx-mute);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.stack-join svg { display: block; flex-shrink: 0; }
+
+/* Sequence */
+.seq {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+  margin-top: 1.85rem;
+  position: relative;
+}
+.seq::before {
   content: "";
   position: absolute;
-  left: -1px;
-  top: 0.4rem;
-  bottom: 0.4rem;
-  width: 1px;
-  background: var(--fx-line);
+  left: 10%;
+  right: 10%;
+  top: 18px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--fx-line) 8%, var(--fx-line) 92%, transparent);
 }
-.t-item {
+.seq-step {
   position: relative;
-  padding: 0 0 1.85rem 1.75rem;
+  padding: 0 0.6rem 0;
+  text-align: center;
 }
-.t-item:last-child { padding-bottom: 0; }
-.t-item .mark {
-  position: absolute;
-  left: -36px;
-  top: 0.15rem;
+.seq-step .mark {
+  margin: 0 auto 0.85rem;
+  position: relative;
+  z-index: 1;
 }
-.t-title {
+.seq-step.is-now .mark {
+  background: var(--fx-lime);
+  color: var(--fx-dark);
+  box-shadow: 0 0 0 6px var(--fx-beige);
+}
+.seq-k {
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fx-mute);
+  margin-bottom: 0.3rem;
+}
+.seq-step.is-now .seq-k { color: var(--fx-ink); }
+.seq-t {
   font-family: var(--fx-display);
-  font-size: clamp(1.35rem, 2.4vw, 1.75rem);
+  font-size: clamp(1.05rem, 1.7vw, 1.35rem);
   letter-spacing: -0.02em;
   color: var(--fx-ink);
   line-height: 1.1;
 }
-.t-body {
+.seq-b {
   margin-top: 0.35rem;
-  font-size: 0.92rem;
-  line-height: 1.45;
-  color: var(--fx-ink-soft);
-  max-width: 36em;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: var(--fx-mute);
 }
 
-/* ── Lock list ──────────────────────────────────────────── */
-.locks { margin-top: 1.5rem; display: flex; flex-direction: column; }
-.lock {
+/* Cohort path */
+.path {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0.55rem;
+  margin-top: 1.6rem;
+}
+.path-item {
+  border-top: 1px solid var(--fx-line);
+  padding-top: 0.55rem;
+}
+.path-n {
+  font-family: var(--fx-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  color: var(--fx-mute);
+  font-variant-numeric: tabular-nums;
+}
+.path-t {
+  margin-top: 0.25rem;
+  font-family: var(--fx-display);
+  font-size: 1.05rem;
+  letter-spacing: -0.02em;
+  color: var(--fx-ink);
+  line-height: 1.15;
+}
+
+/* Firm focus */
+.firms {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.7rem;
+  margin-top: 1.75rem;
+}
+.firm {
+  flex: 1;
+  border: 1px solid var(--fx-line);
+  background: var(--fx-rail);
+  border-radius: 6px 6px 0 0;
+  height: 52px;
+  opacity: 0.45;
+}
+.firm.is-this {
+  flex: 1.35;
+  height: 92px;
+  opacity: 1;
+  background: var(--fx-beige);
+  border-color: var(--fx-ink);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0.65rem 0.7rem;
+}
+.firm-name {
+  font-family: var(--fx-display);
+  font-size: 1.05rem;
+  color: var(--fx-ink);
+  line-height: 1.1;
+}
+.firm-sub {
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fx-mute);
+  margin-top: 0.15rem;
+}
+
+/* Split exists / builds */
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  margin-top: 1.5rem;
+  border: 1px solid var(--fx-line);
+  border-radius: 14px;
+  overflow: hidden;
+}
+.split-col { padding: 1.15rem 1.35rem 1.25rem; }
+.split-col + .split-col { border-left: 1px solid var(--fx-line); }
+.split-col.build { background: var(--fx-beige); }
+.split-col .col-h { display: flex; align-items: center; gap: 0.5rem; }
+
+.asks { margin-top: 1.35rem; display: flex; flex-direction: column; }
+.ask {
   display: grid;
   grid-template-columns: 28px 1fr;
   gap: 1rem;
   align-items: start;
-  padding: 0.85rem 0;
+  padding: 0.8rem 0;
   border-top: 1px solid var(--fx-line);
 }
-.lock:last-child { border-bottom: 1px solid var(--fx-line); }
-.lock p {
+.ask:last-child { border-bottom: 1px solid var(--fx-line); }
+.ask p {
   font-size: 1rem;
   line-height: 1.45;
   color: var(--fx-ink-soft);
   padding-top: 0.2rem;
 }
-.lock em { font-style: italic; color: var(--fx-ink); }
+.ask em { font-style: italic; color: var(--fx-ink); }
 
-/* ── Price ──────────────────────────────────────────────── */
 .quotes { margin-top: 0.5rem; }
 .quote {
   font-family: var(--fx-display);
@@ -466,7 +614,6 @@ body.on-dark .tab.active {
   color: var(--fx-mute);
 }
 
-/* ── Close ──────────────────────────────────────────────── */
 .next-line {
   margin-top: 2rem;
   font-size: 1rem;
@@ -481,7 +628,6 @@ body.on-dark .tab.active {
   line-height: 1;
 }
 
-/* ── Footer ─────────────────────────────────────────────── */
 .footer {
   display: flex;
   align-items: center;
@@ -516,9 +662,14 @@ body.on-dark .tab.active {
 
 @media (max-width: 900px) {
   .facts { grid-template-columns: 1fr 1fr; }
-  .grid-2 { grid-template-columns: 1fr; gap: 1.4rem; }
+  .grid-2, .split, .seq, .path, .stack-pills { grid-template-columns: 1fr 1fr; }
+  .seq { gap: 1.2rem 0.4rem; }
+  .seq::before { display: none; }
+  .path { grid-template-columns: 1fr 1fr 1fr; }
   .tab-label { display: none; }
   .tab { justify-content: center; padding: 0.65rem 0.3rem; }
+  .split { grid-template-columns: 1fr; }
+  .split-col + .split-col { border-left: 0; border-top: 1px solid var(--fx-line); }
 }
 
 @media print {
@@ -547,116 +698,167 @@ body.on-dark .tab.active {
 
   <nav class="tabs" aria-label="Lysbilder">
     <button class="tab active" data-go="0" type="button"><span class="tab-num">01</span><span class="tab-label">Forslag</span></button>
-    <button class="tab" data-go="1" type="button"><span class="tab-num">02</span><span class="tab-label">Relasjon</span></button>
+    <button class="tab" data-go="1" type="button"><span class="tab-num">02</span><span class="tab-label">Oppå Kin</span></button>
     <button class="tab" data-go="2" type="button"><span class="tab-num">03</span><span class="tab-label">Ikke dette</span></button>
-    <button class="tab" data-go="3" type="button"><span class="tab-num">04</span><span class="tab-label">Miljø</span></button>
-    <button class="tab" data-go="4" type="button"><span class="tab-num">05</span><span class="tab-label">Kohorten</span></button>
-    <button class="tab" data-go="5" type="button"><span class="tab-num">06</span><span class="tab-label">Omfang</span></button>
-    <button class="tab" data-go="6" type="button"><span class="tab-num">07</span><span class="tab-label">Finnes</span></button>
-    <button class="tab" data-go="7" type="button"><span class="tab-num">08</span><span class="tab-label">Bygges</span></button>
-    <button class="tab" data-go="8" type="button"><span class="tab-num">09</span><span class="tab-label">Deretter</span></button>
-    <button class="tab" data-go="9" type="button"><span class="tab-num">10</span><span class="tab-label">Låser</span></button>
-    <button class="tab" data-go="10" type="button"><span class="tab-num">11</span><span class="tab-label">Pris</span></button>
-    <button class="tab" data-go="11" type="button"><span class="tab-num">12</span><span class="tab-label">Neste</span></button>
+    <button class="tab" data-go="3" type="button"><span class="tab-num">04</span><span class="tab-label">Rekkefølge</span></button>
+    <button class="tab" data-go="4" type="button"><span class="tab-num">05</span><span class="tab-label">Miljø</span></button>
+    <button class="tab" data-go="5" type="button"><span class="tab-num">06</span><span class="tab-label">Pilot</span></button>
+    <button class="tab" data-go="6" type="button"><span class="tab-num">07</span><span class="tab-label">Omfang</span></button>
+    <button class="tab" data-go="7" type="button"><span class="tab-num">08</span><span class="tab-label">Står</span></button>
+    <button class="tab" data-go="8" type="button"><span class="tab-num">09</span><span class="tab-label">I møtet</span></button>
+    <button class="tab" data-go="9" type="button"><span class="tab-num">10</span><span class="tab-label">Pris</span></button>
+    <button class="tab" data-go="10" type="button"><span class="tab-num">11</span><span class="tab-label">Neste</span></button>
   </nav>
 
   <main class="deck" id="deck">
 
-    <!-- 00 -->
     <section class="slide dark is-current" data-i="0" id="s01">
       <div class="slide-body">
         <p class="eyebrow">Forslag · 18. august 2026</p>
         <h1 class="display h-xl">Den nye bedriften først.</h1>
-        <p class="lede">Feelix får egen klinikkapp og egen metode. Kin er substratet under.</p>
+        <p class="lede">Feelix får egen klinikkapp og egen metode. Kin ligger under, uten navn på flaten.</p>
         <dl class="facts">
           <div><dd>Første leveranse</dd></div>
-          <div><dd>Én bedrift, én gang</dd></div>
+          <div><dd>Denne bedriften</dd></div>
           <div><dd>Ikke EasyPractice-exit</dd></div>
           <div><dd>Ikke Kin-score</dd></div>
         </dl>
       </div>
     </section>
 
-    <!-- 01 -->
     <section class="slide" data-i="1" id="s02">
       <div class="slide-body">
         <p class="eyebrow">Arbeidsdeling</p>
-        <h1 class="display h-l">Dere eier relasjonen.</h1>
-        <div class="grid-2">
-          <div>
-            <h2 class="col-h">Feelix</h2>
-            <ul class="dash">
-              <li>Metode</li>
-              <li>Flate</li>
-              <li>Merkevare</li>
-              <li>App Store-ansikt</li>
-              <li>Pasientforhold</li>
+        <h1 class="display h-l">Feelix kjører oppå Kin.</h1>
+        <figure class="stack" aria-label="Feelix over Kin">
+          <div class="stack-layer stack-feelix">
+            <p class="stack-who">Feelix</p>
+            <ul class="stack-pills">
+              <li>Merkevare<small>Navn, tone, App Store</small></li>
+              <li>Flate<small>Det pasienten ser</small></li>
+              <li>Forhold<small>Pasient og bedrift</small></li>
+              <li>Metode<small>Programmet deres</small></li>
             </ul>
           </div>
-          <div>
-            <h2 class="col-h">Kin</h2>
-            <ul class="dash">
-              <li>Identitet</li>
-              <li>Formål</li>
-              <li>Journalrør</li>
-              <li>Revisjon</li>
-              <li>Tomme motorer<span class="sub">Booking, melding, skjema, forløp</span></li>
+          <div class="stack-join">
+            <svg width="18" height="22" viewBox="0 0 18 22" fill="none" aria-hidden="true">
+              <path d="M9 0 v22" stroke="#e2e2e2"/>
+              <path d="M4 16 L9 21 L14 16" stroke="#272a2a" stroke-width="1.2" fill="none"/>
+            </svg>
+            Substrat
+          </div>
+          <div class="stack-layer stack-kin">
+            <p class="stack-who">Kin</p>
+            <ul class="stack-pills">
+              <li>Sikkerhet<small>Identitet, formål, revisjon</small></li>
+              <li>Journal<small>Rør, ikke score</small></li>
+              <li>Integrasjon<small>Klokker, lab, portal</small></li>
+              <li>Betaling<small>Når pengene skal inn</small></li>
             </ul>
           </div>
-        </div>
+        </figure>
         <p class="note">Ingen tenant-fork. Kin-navnet er ikke på appen.</p>
       </div>
     </section>
 
-    <!-- 02 -->
     <section class="slide" data-i="2" id="s03">
       <div class="slide-body">
         <p class="eyebrow">Ikke dette</p>
         <h1 class="display h-l">Første leveranse er ikke et system.</h1>
-        <p class="display-lede">Det er at alle ansatte hos den nye bedriften kommer gjennom programmet én gang.</p>
+        <p class="display-lede">Det er at de ansatte hos den nye bedriften kommer gjennom programmet.</p>
         <p class="lede">Og at Feelix kan se at det skjedde.</p>
         <div class="tag-row">
           <span class="tag">Fase 3</span>
-          <span>EasyPractice-exit er fase 3. Tripletex er fase 3.</span>
+          <span>EasyPractice-exit og Tripletex kommer senere. Ikke i piloten.</span>
         </div>
       </div>
     </section>
 
-    <!-- 03 -->
     <section class="slide" data-i="3" id="s04">
+      <div class="slide-body">
+        <p class="eyebrow">Leveranse</p>
+        <h1 class="display h-m">I denne rekkefølgen.</h1>
+        <div class="seq" aria-label="Leveransesekvens">
+          <div class="seq-step">
+            <div class="mark"><span>00</span></div>
+            <p class="seq-k">Først</p>
+            <h2 class="seq-t">Eget miljø</h2>
+            <p class="seq-b">Kin. Tenant fra token. Ellers er dere en kopi.</p>
+          </div>
+          <div class="seq-step is-now">
+            <div class="mark"><span>01</span></div>
+            <p class="seq-k">Piloten</p>
+            <h2 class="seq-t">Denne bedriften</h2>
+            <p class="seq-b">Kohorten gjennom programmet. Det vi leverer nå.</p>
+          </div>
+          <div class="seq-step">
+            <div class="mark"><span>02</span></div>
+            <p class="seq-k">Deretter</p>
+            <h2 class="seq-t">Resten av basen</h2>
+            <p class="seq-b">B2C. Avtalen som objekt.</p>
+          </div>
+          <div class="seq-step">
+            <div class="mark"><span>03</span></div>
+            <p class="seq-k">Så</p>
+            <h2 class="seq-t">Admin</h2>
+            <p class="seq-b">Tripletex, grupper. Først da er EasyPractice-exit ærlig.</p>
+          </div>
+          <div class="seq-step">
+            <div class="mark"><span>04</span></div>
+            <p class="seq-k">Etter det</p>
+            <h2 class="seq-t">Vekst</h2>
+            <p class="seq-b">Feelix-forfattet. Kin sender ikke score.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-i="4" id="s05">
       <div class="slide-body">
         <div class="mark-row">
           <div class="mark"><span>00</span></div>
-          <p class="mark-label">Fase 0</p>
+          <p class="mark-label">Før noe annet</p>
         </div>
         <h1 class="display h-l">Eget miljø. Ellers er dere en kopi.</h1>
         <p class="lede">Tenant fra token. Hardkodet tenant vekk. RLS. Eget Feelix-miljø.</p>
-        <p class="note">Dette er Kin-arbeid. Fase 1 kan ikke være deres før det er gjort.</p>
+        <p class="note">Dette er Kin-arbeid. Piloten kan ikke være deres før det er gjort.</p>
       </div>
     </section>
 
-    <!-- 04 -->
-    <section class="slide" data-i="4" id="s05">
+    <section class="slide" data-i="5" id="s06">
       <div class="slide-body">
         <div class="head-row">
           <div class="mark-row" style="margin-bottom:0">
             <div class="mark"><span>01</span></div>
-            <p class="mark-label">Fase 1</p>
+            <p class="mark-label">Piloten</p>
           </div>
-          <span class="chip">Pilot</span>
+          <span class="chip chip-lime">Denne bedriften</span>
         </div>
-        <h1 class="display h-l mt">Denne bedriften. Én gang gjennom.</h1>
-        <div class="observe">
-          <span class="eyebrow">Observasjon</span>
-          Målet er ikke et klinikksystem. Målet er at kohorten kommer gjennom, og at dere (og ev. bedriften) kan se at det skjedde.
+        <h1 class="display h-l mt">Vi starter her. Ikke med hele basen.</h1>
+        <div class="firms" aria-hidden="true">
+          <div class="firm"></div>
+          <div class="firm"></div>
+          <div class="firm is-this">
+            <p class="firm-name">Den nye bedriften</p>
+            <p class="firm-sub">Pilot · denne kohorten</p>
+          </div>
+          <div class="firm"></div>
+          <div class="firm"></div>
         </div>
+        <ol class="path" aria-label="Programmet">
+          <li class="path-item"><p class="path-n">01</p><p class="path-t">Lenke inn</p></li>
+          <li class="path-item"><p class="path-n">02</p><p class="path-t">Besøk</p></li>
+          <li class="path-item"><p class="path-n">03</p><p class="path-t">Målinger</p></li>
+          <li class="path-item"><p class="path-n">04</p><p class="path-t">Skjema</p></li>
+          <li class="path-item"><p class="path-n">05</p><p class="path-t">Melding</p></li>
+          <li class="path-item"><p class="path-n">06</p><p class="path-t">Aggregat</p></li>
+        </ol>
       </div>
     </section>
 
-    <!-- 05 -->
-    <section class="slide" data-i="5" id="s06">
+    <section class="slide" data-i="6" id="s07">
       <div class="slide-body">
-        <p class="eyebrow">Fase 1</p>
+        <p class="eyebrow">Piloten</p>
         <h1 class="display h-m">I omfang. Ikke i omfang.</h1>
         <div class="grid-2">
           <div>
@@ -688,102 +890,59 @@ body.on-dark .tab.active {
       </div>
     </section>
 
-    <!-- 06 -->
-    <section class="slide" data-i="6" id="s07">
+    <section class="slide" data-i="7" id="s08">
       <div class="slide-body">
-        <p class="eyebrow">Hva som finnes</p>
-        <h1 class="display h-l">Booking mangler ikke.</h1>
-        <div class="grid-2">
-          <div>
-            <h2 class="col-h">Allerede i drift, gjenbrukbart</h2>
+        <p class="eyebrow">Flaten</p>
+        <h1 class="display h-m">Hva som står, og hva vi setter på.</h1>
+        <div class="split">
+          <div class="split-col">
+            <h2 class="col-h"><span class="chip">Står</span></h2>
             <ul class="dash">
               <li>Booking</li>
               <li>Sikker melding</li>
               <li>Skjemamotor</li>
               <li>Forløpsmotor</li>
               <li>Tynn bedrift</li>
+              <li>Garmin, Polar, Suunto, Apple Health</li>
             </ul>
           </div>
-          <div>
-            <h2 class="col-h">Wearables nå</h2>
+          <div class="split-col build">
+            <h2 class="col-h"><span class="tag">Settes på</span></h2>
             <ul class="dash">
-              <li>Garmin</li>
-              <li>Polar</li>
-              <li>Suunto</li>
-              <li>Apple Health</li>
+              <li>Avtale på denne kohorten</li>
+              <li>k-gulv før aggregat ut av klinikken</li>
+              <li>Feelix-merket flate uten Kin-score</li>
+              <li>Arbeidsliste</li>
+              <li>Deres maler</li>
             </ul>
           </div>
         </div>
-        <p class="note">Ikke Oura, Whoop, Fitbit eller Sibionics i fase 1. Under arbeid: tenant fra token.</p>
+        <p class="note">Booking mangler ikke. Oura, Whoop, Fitbit og Sibionics er ikke i piloten. Bedriftsadmin ser aldri journal, måling, skjema-svar eller melding.</p>
       </div>
     </section>
 
-    <!-- 07 -->
-    <section class="slide" data-i="7" id="s08">
-      <div class="slide-body">
-        <p class="eyebrow">Fase 1</p>
-        <h1 class="display h-m">Hva som bygges.</h1>
-        <div class="list-block">
-          <ul class="dash">
-            <li>Avtale på denne kohorten</li>
-            <li>k-gulv før aggregat ut av klinikken</li>
-            <li>Feelix-merket flate uten Kin-score</li>
-            <li>Arbeidsliste</li>
-            <li>Deres maler</li>
-          </ul>
-        </div>
-        <p class="note">Inntil k-gulv er aggregatet Feelix-internt. Bedriftsadmin ser aldri journal, måling, skjema-svar eller melding.</p>
-      </div>
-    </section>
-
-    <!-- 08 -->
     <section class="slide" data-i="8" id="s09">
       <div class="slide-body">
-        <p class="eyebrow">Etter fase 1</p>
-        <h1 class="display h-m">Deretter.</h1>
-        <div class="timeline">
-          <div class="t-item">
-            <div class="mark"><span>02</span></div>
-            <h2 class="t-title">B2C</h2>
-            <p class="t-body">Avtalen som objekt. Resten av kundebasen.</p>
-          </div>
-          <div class="t-item">
-            <div class="mark"><span>03</span></div>
-            <h2 class="t-title">Admin, Tripletex, grupper</h2>
-            <p class="t-body">Først nå er EasyPractice-exit ærlig.</p>
-          </div>
-          <div class="t-item">
-            <div class="mark"><span>04</span></div>
-            <h2 class="t-title">Vekst og engagement</h2>
-            <p class="t-body">Feelix-forfattet. Kin sender ikke score eller protokoll.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 09 -->
-    <section class="slide" data-i="9" id="s10">
-      <div class="slide-body">
-        <p class="eyebrow">Møtet</p>
-        <h1 class="display h-m">Møtet låser.</h1>
-        <div class="locks">
-          <div class="lock">
+        <p class="eyebrow">I dette møtet</p>
+        <h1 class="display h-m">Det vi trenger å bli enige om.</h1>
+        <div class="asks">
+          <div class="ask">
             <div class="mark"><span>1</span></div>
-            <p>Fase 1 er en navngitt bedrift, én gang. Ikke A–D.</p>
+            <p>Piloten er <em>denne</em> bedriften. Ikke A–D, ikke hele basen.</p>
           </div>
-          <div class="lock">
+          <div class="ask">
             <div class="mark"><span>2</span></div>
             <p>Kort liste: alle besøk og alle målinger i <em>dette</em> programmet.</p>
           </div>
-          <div class="lock">
+          <div class="ask">
             <div class="mark"><span>3</span></div>
             <p>Får bedriften se aggregat, eller bare Feelix. (k-gulv)</p>
           </div>
-          <div class="lock">
+          <div class="ask">
             <div class="mark"><span>4</span></div>
             <p>Hvilket skjema, hvilke 2–3 datakilder. Ingen Kin-score.</p>
           </div>
-          <div class="lock">
+          <div class="ask">
             <div class="mark"><span>5</span></div>
             <p>Onboarding uten e-post eller SMS. Lenke duger.</p>
           </div>
@@ -791,8 +950,7 @@ body.on-dark .tab.active {
       </div>
     </section>
 
-    <!-- 10 -->
-    <section class="slide" data-i="10" id="s11">
+    <section class="slide" data-i="9" id="s10">
       <div class="slide-body">
         <p class="eyebrow">Hvis dere spør om pris</p>
         <div class="quotes">
@@ -804,11 +962,10 @@ body.on-dark .tab.active {
       </div>
     </section>
 
-    <!-- 11 -->
-    <section class="slide dark" data-i="11" id="s12">
+    <section class="slide dark" data-i="10" id="s11">
       <div class="slide-body">
-        <h1 class="display h-xl">Én bedrift. Én gang. Deretter deres system.</h1>
-        <p class="next-line">Neste: lås programmets besøk og målinger.</p>
+        <h1 class="display h-xl">Denne bedriften. Deretter deres system.</h1>
+        <p class="next-line">Neste: programmets besøk og målinger.</p>
         <p class="close-mark">Feelix</p>
       </div>
     </section>
@@ -818,7 +975,7 @@ body.on-dark .tab.active {
     <p class="footer-left">Feelix · Kin</p>
     <div class="footer-right">
       <button class="nav-btn" type="button" data-step="-1" aria-label="Forrige">‹</button>
-      <span class="counter" id="counter">01 / 12</span>
+      <span class="counter" id="counter">01 / 11</span>
       <button class="nav-btn" type="button" data-step="1" aria-label="Neste">›</button>
     </div>
   </footer>
