@@ -964,6 +964,126 @@ body.on-dark .tab.active {
 }
 .d-next strong { color: var(--fx-ink); font-weight: 600; }
 
+
+.d-book .d-title { max-width: 22ch; font-size: clamp(1.45rem, 2.6vw, 2rem); }
+.d-card {
+  margin: 0.75rem 0 0.9rem;
+  padding: 0.75rem 0.95rem;
+  border: 1px solid var(--fx-line);
+  border-radius: 14px;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+}
+.d-card h3 {
+  font-family: var(--fx-display);
+  font-size: 1.15rem;
+  letter-spacing: -0.02em;
+  color: var(--fx-ink);
+}
+.d-card p { margin-top: 0.2rem; font-size: 0.8rem; color: var(--fx-mute); }
+.d-card .pill {
+  font-size: 0.72rem;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  background: var(--fx-beige);
+  color: var(--fx-ink);
+  white-space: nowrap;
+}
+.d-dates {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.45rem;
+  margin: 0 0 0.95rem;
+}
+.d-day {
+  border: 1px solid var(--fx-line);
+  border-radius: 14px;
+  padding: 0.55rem 0.2rem 0.6rem;
+  text-align: center;
+  background: var(--fx-page);
+  color: var(--fx-ink);
+}
+.d-day small {
+  display: block;
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fx-mute);
+}
+.d-day .num {
+  display: block;
+  font-family: var(--fx-display);
+  font-size: 1.25rem;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin: 0.15rem 0 0.05rem;
+}
+.d-day.is-on {
+  background: var(--fx-dark);
+  border-color: var(--fx-dark);
+  color: #fff;
+}
+.d-day.is-on small { color: var(--fx-lime); }
+.d-book-grid {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 1.1rem;
+  align-items: start;
+}
+.d-doc {
+  padding: 0.85rem 0.9rem 1rem;
+  background: var(--fx-beige);
+  border-radius: 14px;
+}
+.d-ava {
+  width: 44px;
+  height: 44px;
+  border-radius: 99px;
+  background: var(--fx-dark);
+  color: var(--fx-lime);
+  display: grid;
+  place-items: center;
+  font-family: var(--fx-display);
+  font-size: 1.05rem;
+  margin-bottom: 0.65rem;
+}
+.d-doc h3 {
+  font-family: var(--fx-display);
+  font-size: 1.15rem;
+  color: var(--fx-ink);
+  letter-spacing: -0.02em;
+}
+.d-doc .role { margin-top: 0.15rem; font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--fx-mute); }
+.d-doc .bio { margin-top: 0.55rem; font-size: 0.82rem; line-height: 1.4; color: var(--fx-ink-soft); }
+.d-times .band { margin-bottom: 0.7rem; }
+.d-times .band-h {
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fx-mute);
+  margin-bottom: 0.4rem;
+}
+.d-slots { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.d-slot {
+  min-width: 4.6rem;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  font-size: 0.88rem;
+  padding: 0.5rem 0.7rem;
+  border: 1px solid var(--fx-line);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--fx-ink);
+}
+.d-slot:hover { background: var(--fx-beige); }
+.d-slot.is-on { background: var(--fx-dark); border-color: var(--fx-dark); color: var(--fx-lime); }
+.d-slot.is-off { color: #bbb; background: var(--fx-rail); pointer-events: none; }
+@media (max-width: 900px) {
+  .d-book-grid { grid-template-columns: 1fr; }
+}
+
 @media (max-width: 900px) {
   .d-pillars { grid-template-columns: 1fr 1fr; }
   .demo-steps .l { display: none; }
@@ -1168,33 +1288,51 @@ body.on-dark .tab.active {
               </div>
             </div>
 
-            <div class="d-screen" data-demo="2">
-              <p class="d-kicker">Oppstartssamtale · 45 min · Feelix-klinikk</p>
-              <h2 class="d-title">Velg en tid.</h2>
-              <div class="d-days">
-                <button class="d-day" type="button"><small>Man</small>20</button>
-                <button class="d-day" type="button"><small>Tir</small>21</button>
-                <button class="d-day is-on" type="button"><small>Ons</small>22</button>
-                <button class="d-day" type="button"><small>Tor</small>23</button>
-                <button class="d-day" type="button"><small>Fre</small>24</button>
+            <div class="d-screen d-book" data-demo="2">
+              <p class="d-kicker">Booking</p>
+              <h2 class="d-title">Velg dato og tidspunkt.</h2>
+              <div class="d-card">
+                <div>
+                  <h3>Oppstartssamtale</h3>
+                  <p>45 min · Sørkedalsveien 10C, 3. etg. · Dekkes av Eksempelbedriften AS</p>
+                </div>
+                <span class="pill">Feelix-klinikk</span>
               </div>
-              <p class="d-kicker">Formiddag</p>
-              <div class="d-slots">
-                <button class="d-slot is-off" type="button">08:00</button>
-                <button class="d-slot is-off" type="button">08:30</button>
-                <button class="d-slot is-on" type="button">09:00</button>
-                <button class="d-slot" type="button">09:30</button>
-                <button class="d-slot" type="button">10:00</button>
-                <button class="d-slot is-off" type="button">10:30</button>
-                <button class="d-slot" type="button">11:00</button>
+              <div class="d-dates">
+                <button class="d-day" type="button"><small>Man</small><span class="num">17</span><small>aug</small></button>
+                <button class="d-day" type="button"><small>Tir</small><span class="num">18</span><small>aug</small></button>
+                <button class="d-day is-on" type="button"><small>Ons</small><span class="num">19</span><small>aug</small></button>
+                <button class="d-day" type="button"><small>Tor</small><span class="num">20</span><small>aug</small></button>
+                <button class="d-day" type="button"><small>Fre</small><span class="num">21</span><small>aug</small></button>
               </div>
-              <p class="d-kicker" style="margin-top:0.9rem">Ettermiddag</p>
-              <div class="d-slots">
-                <button class="d-slot" type="button">14:00</button>
-                <button class="d-slot" type="button">14:30</button>
-                <button class="d-slot is-off" type="button">15:00</button>
-                <button class="d-slot" type="button">15:30</button>
-                <button class="d-slot" type="button">16:00</button>
+              <div class="d-book-grid">
+                <div class="d-doc">
+                  <div class="d-ava">S</div>
+                  <h3>Dr. Svanevik</h3>
+                  <p class="role">Lege · Feelix</p>
+                  <p class="bio">Du snakker mer enn du tror når legen har 45 minutter.</p>
+                </div>
+                <div class="d-times">
+                  <div class="band">
+                    <p class="band-h">Morgen</p>
+                    <div class="d-slots">
+                      <button class="d-slot is-off" type="button">08:00</button>
+                      <button class="d-slot is-on" type="button">09:00</button>
+                      <button class="d-slot" type="button">09:40</button>
+                      <button class="d-slot" type="button">10:20</button>
+                      <button class="d-slot is-off" type="button">11:00</button>
+                    </div>
+                  </div>
+                  <div class="band">
+                    <p class="band-h">Ettermiddag</p>
+                    <div class="d-slots">
+                      <button class="d-slot" type="button">13:20</button>
+                      <button class="d-slot" type="button">14:00</button>
+                      <button class="d-slot is-off" type="button">14:40</button>
+                      <button class="d-slot" type="button">15:30</button>
+                    </div>
+                  </div>
+                </div>
               </div>
               <div class="d-actions">
                 <button class="d-btn ghost" type="button" data-demo-go="1">Tilbake</button>
