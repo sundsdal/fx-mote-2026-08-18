@@ -1252,6 +1252,68 @@ body.on-dark .tab.active {
 .d-slot:hover { background: var(--fx-beige); }
 .d-slot.is-on { background: var(--fx-dark); border-color: var(--fx-dark); color: var(--fx-lime); }
 .d-slot.is-off { color: #bbb; background: var(--fx-rail); pointer-events: none; }
+
+.d-work-h {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 0.35rem;
+}
+.d-work-h .k {
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fx-mute);
+}
+.d-work-h .t {
+  font-family: var(--fx-display);
+  font-size: 1.35rem;
+  letter-spacing: -0.02em;
+  color: var(--fx-ink);
+}
+.d-plist {
+  list-style: none;
+  margin-top: 0.7rem;
+  border-top: 1px solid var(--fx-line);
+}
+.d-plist li {
+  display: grid;
+  grid-template-columns: 1.35fr 0.85fr 1.35fr auto;
+  gap: 0.55rem;
+  align-items: center;
+  padding: 0.68rem 0;
+  border-bottom: 1px solid var(--fx-line);
+}
+.d-plist .nm {
+  font-family: var(--fx-display);
+  font-size: 1.08rem;
+  letter-spacing: -0.02em;
+  color: var(--fx-ink);
+}
+.d-plist .wk { font-size: 0.78rem; color: var(--fx-mute); }
+.d-plist .nx { font-size: 0.82rem; line-height: 1.3; color: var(--fx-ink-soft); }
+.d-act {
+  font-size: 0.78rem;
+  padding: 0.38rem 0.75rem;
+  border-radius: 999px;
+  background: var(--fx-dark);
+  color: var(--fx-lime);
+  white-space: nowrap;
+}
+.d-act.soft {
+  background: var(--fx-beige);
+  color: var(--fx-ink);
+}
+.d-act.line {
+  background: transparent;
+  color: var(--fx-ink);
+  box-shadow: inset 0 0 0 1px var(--fx-line);
+}
+@media (max-width: 900px) {
+  .d-plist li { grid-template-columns: 1fr auto; }
+  .d-plist .wk, .d-plist .nx { grid-column: 1; }
+}
 @media (max-width: 900px) {
   .d-book-grid { grid-template-columns: 1fr; }
 }
@@ -1892,6 +1954,7 @@ body.on-dark .tab.active {
             <button type="button" data-demo-go="3"><span class="n">04</span><span class="l">Time</span></button>
             <button type="button" data-demo-go="4"><span class="n">05</span><span class="l">Melding</span></button>
             <button type="button" data-demo-go="5"><span class="n">06</span><span class="l">Dashboard</span></button>
+            <button type="button" data-demo-go="6"><span class="n">07</span><span class="l">Liste</span></button>
           </div>
           <div class="d-stage">
 
@@ -2090,7 +2153,48 @@ body.on-dark .tab.active {
               </div>
               <div class="dd-foot">
                 <span>Signert av Dr. Svanevik i konsultasjonen. Ingen badges. Ingen Kin-score.</span>
-                <button class="d-btn ghost" type="button" data-demo-go="0">Start på nytt</button>
+                <button class="d-btn ghost" type="button" data-demo-go="6">Åpne listen</button>
+              </div>
+            </div>
+
+            <div class="d-screen" data-demo="6">
+              <div class="d-work-h">
+                <div>
+                  <p class="k">Klinikk · Dr. Svanevik</p>
+                  <p class="t">I dag. Fire åpne.</p>
+                </div>
+                <p class="k">AI minner legen</p>
+              </div>
+              <p class="d-lede">Listen er relasjonen. Svar. Gjør neste steg. Ta kontakt før de forsvinner.</p>
+              <ul class="d-plist">
+                <li>
+                  <span class="nm">Lars Bjerke</span>
+                  <span class="wk">Uke 14 av 24</span>
+                  <span class="nx">Ubesvart melding om Apo B</span>
+                  <button class="d-act" type="button">Svar</button>
+                </li>
+                <li>
+                  <span class="nm">Marte Holm</span>
+                  <span class="wk">Uke 9</span>
+                  <span class="nx">Neste steg forfalt. Mørklegging.</span>
+                  <button class="d-act soft" type="button">Gjør</button>
+                </li>
+                <li>
+                  <span class="nm">Jonas Lie</span>
+                  <span class="wk">Stille 18 dager</span>
+                  <span class="nx">Relasjonen må vekkes</span>
+                  <button class="d-act line" type="button">Ta kontakt</button>
+                </li>
+                <li>
+                  <span class="nm">Eva Nilsen</span>
+                  <span class="wk">Uke 24 · slutt</span>
+                  <span class="nx">Planen er over. Forny, eller hent inn.</span>
+                  <button class="d-act" type="button">Hent tilbake</button>
+                </li>
+              </ul>
+              <div class="d-actions">
+                <button class="d-btn ghost" type="button" data-demo-go="5">Tilbake</button>
+                <button class="d-btn" type="button" data-demo-go="0">Start på nytt</button>
               </div>
             </div>
 
@@ -2535,7 +2639,7 @@ body.on-dark .tab.active {
     var k = e.key;
     if (k === "ArrowRight" || k === "ArrowDown" || k === " " || k === "Spacebar" || k === "j") {
       e.preventDefault();
-      if (i === DEMO && demoI < 5) showDemo(demoI + 1);
+      if (i === DEMO && demoI < 6) showDemo(demoI + 1);
       else go(i + 1);
     } else if (k === "ArrowLeft" || k === "ArrowUp" || k === "k") {
       e.preventDefault();
@@ -2635,7 +2739,7 @@ body.on-dark .tab.active {
         }
         return;
       }
-      if (e.target.closest("input, label, .d-mc, .d-slide, .d-upload, .d-compose, .d-lab, .d-rich")) return;
+      if (e.target.closest("input, label, .d-mc, .d-slide, .d-upload, .d-compose, .d-lab, .d-rich, .d-act, .d-plist")) return;
       var r = demo.getBoundingClientRect();
       if ((e.clientX - r.left) < r.width * 0.2) {
         if (demoI > 0) showDemo(demoI - 1);
