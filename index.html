@@ -241,12 +241,19 @@ body.on-dark .tab.active {
 
 .facts {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 0.75rem 2rem;
   margin-top: 2.75rem;
 }
 .facts div { border-top: 1px solid #3a3d3d; padding-top: 0.55rem; }
-.facts dd { margin: 0; font-size: 0.95rem; color: #fff; }
+.facts dt {
+  font-family: var(--fx-display);
+  font-size: 1.25rem;
+  letter-spacing: -0.02em;
+  color: #fff;
+  line-height: 1.1;
+}
+.facts dd { margin: 0.3rem 0 0; font-size: 0.88rem; color: #c8caca; }
 
 .grid-2 {
   display: grid;
@@ -716,12 +723,11 @@ body.on-dark .tab.active {
       <div class="slide-body">
         <p class="eyebrow">Forslag · 18. august 2026</p>
         <h1 class="display h-xl">Den nye bedriften først.</h1>
-        <p class="lede">Feelix får egen flate og egen metode. Kin ligger under, uten navn på flaten.</p>
+        <p class="lede">Kin under. Feelix på flaten. Leveransen er bedriftspiloten.</p>
         <dl class="facts">
-          <div><dd>Pilot</dd></div>
-          <div><dd>Denne bedriften</dd></div>
-          <div><dd>Ikke app</dd></div>
-          <div><dd>Ikke wearables, ikke integrasjoner</dd></div>
+          <div><dt>Kin</dt><dd>Substrat. Uten navn på flaten.</dd></div>
+          <div><dt>Feelix</dt><dd>Merkevare, flate, metode.</dd></div>
+          <div><dt>Bedriftspilot</dt><dd>Denne bedriften. Denne kohorten.</dd></div>
         </dl>
       </div>
     </section>
