@@ -860,6 +860,86 @@ body.on-dark .tab.active {
 .d-form .d-q { margin-top: 0.75rem; }
 .d-form .d-q + .d-q { margin-top: 0.85rem; padding-top: 0.75rem; }
 
+.d-screen.d-dash { padding: 0; overflow: auto; max-height: 430px; }
+.dd-head {
+  display: grid;
+  grid-template-columns: 1.4fr auto 1fr;
+  gap: 1rem;
+  align-items: center;
+  padding: 0.85rem 1.1rem;
+  background: var(--fx-dark);
+  color: var(--fx-beige);
+}
+.dd-eye { display: block; font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: #a8aaaa; margin-bottom: 0.2rem; }
+.dd-name { font-family: var(--fx-display); font-size: 1.25rem; color: #fff; letter-spacing: -0.01em; }
+.dd-meta { font-size: 0.8rem; color: #a8aaaa; }
+.dd-lime { background: var(--fx-lime); color: var(--fx-dark); font-size: 0.7rem; padding: 0.25rem 0.6rem; border-radius: 999px; }
+.dd-when { font-variant-numeric: tabular-nums; color: #fff; font-size: 0.88rem; }
+.dd-narr {
+  margin: 0;
+  padding: 0.75rem 1.1rem;
+  background: var(--fx-beige);
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--fx-ink-soft);
+  border-bottom: 1px solid var(--fx-line);
+}
+.dd-ovw { padding: 0.75rem 1.1rem 0.35rem; }
+.dd-ovw-h {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.45rem;
+}
+.dd-ovw-h h3 { font-family: var(--fx-display); font-size: 1.15rem; color: var(--fx-ink); letter-spacing: -0.01em; }
+.dd-ovw-h span { font-size: 0.62rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fx-mute); }
+.dd-row {
+  display: grid;
+  grid-template-columns: 1.4rem 7.2rem 1fr 2.4rem;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.42rem 0;
+  border-top: 1px solid var(--fx-line);
+}
+.dd-row:first-of-type { border-top: 0; }
+.dd-n { font-size: 0.62rem; letter-spacing: 0.08em; color: var(--fx-mute); font-variant-numeric: tabular-nums; }
+.dd-nm { font-size: 0.88rem; color: var(--fx-ink); }
+.dd-strip { position: relative; height: 8px; background: #f4f4f2; border-radius: 4px; box-shadow: inset 0 0 0 1px var(--fx-line); }
+.dd-anb { position: absolute; top: 0; bottom: 0; background: #ede2a3; border-radius: 4px; }
+.dd-opt { position: absolute; top: 0; bottom: 0; background: var(--fx-mint); border-radius: 4px; }
+.dd-mark { position: absolute; top: -4px; width: 3px; height: 16px; background: var(--fx-dark); border-radius: 1px; transform: translateX(-50%); }
+.dd-p { font-variant-numeric: tabular-nums; font-size: 0.85rem; font-weight: 500; color: var(--fx-ink); text-align: right; }
+.dd-note { margin: 0.55rem 0 0; font-size: 0.78rem; line-height: 1.4; color: var(--fx-ink-soft); }
+.dd-pills { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--fx-line); border-top: 1px solid var(--fx-line); }
+.dd-pill { background: var(--fx-page); padding: 0.75rem 0.9rem 0.8rem; }
+.dd-pill-h { display: flex; align-items: baseline; gap: 0.45rem; }
+.dd-pill-h .no { font-size: 0.62rem; letter-spacing: 0.08em; color: var(--fx-mute); }
+.dd-pill-h h4 { font-family: var(--fx-display); font-size: 1.05rem; color: var(--fx-ink); letter-spacing: -0.01em; }
+.dd-tag { margin-left: auto; font-size: 0.62rem; padding: 0.18rem 0.45rem; border-radius: 999px; }
+.dd-tag.mint { background: var(--fx-mint); color: #114e0b; }
+.dd-tag.wheat { background: var(--fx-wheat); color: #5e5515; }
+.dd-tag.blush { background: var(--fx-blush); color: #8a2222; }
+.dd-fig { display: flex; align-items: baseline; gap: 0.35rem; margin: 0.35rem 0 0.4rem; }
+.dd-fig b { font-size: 1.55rem; font-weight: 600; letter-spacing: -0.02em; color: var(--fx-ink); font-variant-numeric: tabular-nums; }
+.dd-fig span { font-size: 0.75rem; color: var(--fx-mute); }
+.dd-meta3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.4rem; padding: 0.45rem 0; border-top: 1px solid var(--fx-line); border-bottom: 1px solid var(--fx-line); }
+.dd-meta3 dt { font-size: 0.58rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--fx-mute); }
+.dd-meta3 dd { margin: 0; font-size: 0.82rem; font-variant-numeric: tabular-nums; color: var(--fx-ink); }
+.dd-next { margin: 0.5rem 0 0; padding: 0.5rem 0.6rem; background: var(--fx-beige); border-radius: 8px; font-size: 0.75rem; line-height: 1.4; color: var(--fx-ink-soft); }
+.dd-next b { display: block; font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fx-mute); font-weight: 500; margin-bottom: 0.15rem; }
+.dd-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.65rem 1.1rem;
+  background: var(--fx-beige);
+  border-top: 1px solid var(--fx-line);
+  font-size: 0.7rem;
+  color: var(--fx-mute);
+}
+
+
 .d-bid-btn {
   display: inline-flex;
   align-items: center;
@@ -1472,44 +1552,56 @@ body.on-dark .tab.active {
               </div>
             </div>
 
-            <div class="d-screen" data-demo="5">
-              <p class="d-kicker">Anna Holm · Eksempelbedriften AS · uke 3</p>
-              <h2 class="d-title">Slik leser legen deg.</h2>
-              <div class="d-pillars">
-                <div class="d-pillar">
-                  <p class="pn">01</p>
-                  <h3>Søvn</h3>
-                  <p class="pv">Ujevn</p>
-                  <p class="ps">Innsovning 20–30 min. Der vi starter.</p>
+            <div class="d-screen d-dash" data-demo="5">
+              <div class="dd-head">
+                <div>
+                  <span class="dd-eye">Pasient</span>
+                  <p class="dd-name">Lars Bjerke</p>
+                  <p class="dd-meta">42 år · Eksempelbedriften AS</p>
                 </div>
-                <div class="d-pillar">
-                  <p class="pn">02</p>
-                  <h3>Aktivitet</h3>
-                  <p class="pv">2–3 d</p>
-                  <p class="ps">Bevegelse finnes. Ikke volumet ennå.</p>
-                </div>
-                <div class="d-pillar">
-                  <p class="pn">03</p>
-                  <h3>Ernæring</h3>
-                  <p class="pv">Åpent</p>
-                  <p class="ps">Tas i samtalen. Ingen lab i piloten.</p>
-                </div>
-                <div class="d-pillar">
-                  <p class="pn">04</p>
-                  <h3>Stress</h3>
-                  <p class="pv">Håndterbart</p>
-                  <p class="ps">Formiddagstopper på møtedager.</p>
-                </div>
-                <div class="d-pillar">
-                  <p class="pn">05</p>
-                  <h3>Livsstil</h3>
-                  <p class="pv">Tre vaner</p>
-                  <p class="ps">Det de selv vil holde.</p>
+                <span class="dd-lime">Founding Member</span>
+                <div>
+                  <span class="dd-eye">Aktiv plan</span>
+                  <p class="dd-when">Uke 14 av 24</p>
                 </div>
               </div>
-              <p class="d-narr">Fem hjørnesteiner, ikke femti tall. Hvert neste steg er fra legen i samtalen. Ingen badges, ingen klokke, ingen Kin-score.</p>
-              <p class="d-next"><strong>Neste steg.</strong> Behold mørkleggingsrutinen. Vi tar søvn først onsdag.</p>
-              <div class="d-actions">
+              <p class="dd-narr">Biologisk alder og kondisjon trender riktig vei. Ett område å følge: Apo B er marginalt opp siden februar. Vi justerer ernæringsplanen — kostveileder er inne i loopen — fremfor å starte tilskudd nå.</p>
+              <div class="dd-ovw">
+                <div class="dd-ovw-h">
+                  <h3>Fem hjørnesteiner</h3>
+                  <span>Hele skala · vanlig · optimalt</span>
+                </div>
+                <div class="dd-row"><span class="dd-n">01</span><span class="dd-nm">Søvn</span><span class="dd-strip"><i class="dd-anb" style="left:25%;width:45%"></i><i class="dd-opt" style="left:70%;width:20%"></i><b class="dd-mark" style="left:74%"></b></span><span class="dd-p">p74</span></div>
+                <div class="dd-row"><span class="dd-n">02</span><span class="dd-nm">Fysisk aktivitet</span><span class="dd-strip"><i class="dd-anb" style="left:25%;width:45%"></i><i class="dd-opt" style="left:70%;width:20%"></i><b class="dd-mark" style="left:82%"></b></span><span class="dd-p">p82</span></div>
+                <div class="dd-row"><span class="dd-n">03</span><span class="dd-nm">Ernæring</span><span class="dd-strip"><i class="dd-anb" style="left:25%;width:45%"></i><i class="dd-opt" style="left:70%;width:20%"></i><b class="dd-mark" style="left:47%"></b></span><span class="dd-p">p47</span></div>
+                <div class="dd-row"><span class="dd-n">04</span><span class="dd-nm">Stressmestring</span><span class="dd-strip"><i class="dd-anb" style="left:25%;width:45%"></i><i class="dd-opt" style="left:70%;width:20%"></i><b class="dd-mark" style="left:71%"></b></span><span class="dd-p">p71</span></div>
+                <div class="dd-row"><span class="dd-n">05</span><span class="dd-nm">Livsstil</span><span class="dd-strip"><i class="dd-anb" style="left:25%;width:45%"></i><i class="dd-opt" style="left:70%;width:20%"></i><b class="dd-mark" style="left:58%"></b></span><span class="dd-p">p58</span></div>
+                <p class="dd-note">Fire av fem over p25. Aktivitet og stress ligger optimalt. Ernæring er der vi henter mest løft — drevet av Apo B og tilført sukker fra helgemåltider.</p>
+              </div>
+              <div class="dd-pills">
+                <div class="dd-pill">
+                  <div class="dd-pill-h"><span class="no">01</span><h4>Søvn</h4><span class="dd-tag mint">Optimalt</span></div>
+                  <div class="dd-fig"><b>7,4</b><span>t snitt · 14 netter</span></div>
+                  <dl class="dd-meta3">
+                    <div><dt>Dyp</dt><dd>1,3 t</dd></div>
+                    <div><dt>REM</dt><dd>1,7 t</dd></div>
+                    <div><dt>Effektivitet</dt><dd>91 %</dd></div>
+                  </dl>
+                  <p class="dd-next"><b>Neste steg</b>Behold mørkleggingsrutinen. Måles på nytt etter sommerferien.</p>
+                </div>
+                <div class="dd-pill">
+                  <div class="dd-pill-h"><span class="no">03</span><h4>Ernæring</h4><span class="dd-tag blush">Følg over tid</span></div>
+                  <div class="dd-fig"><b>1,12</b><span>g/L Apo B · 02. mai</span></div>
+                  <dl class="dd-meta3">
+                    <div><dt>Protein</dt><dd>1,1 g/kg</dd></div>
+                    <div><dt>Sukker</dt><dd>38 g</dd></div>
+                    <div><dt>Fiber</dt><dd>27 g</dd></div>
+                  </dl>
+                  <p class="dd-next"><b>Neste steg</b>Bytte to ukentlige desserter mot frukt + nøtter. Re-test Apo B 4. august.</p>
+                </div>
+              </div>
+              <div class="dd-foot">
+                <span>Signert av Dr. Svanevik i konsultasjonen. Ingen badges. Ingen Kin-score.</span>
                 <button class="d-btn ghost" type="button" data-demo-go="0">Start på nytt</button>
               </div>
             </div>
