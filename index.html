@@ -447,6 +447,17 @@ body.on-dark .tab.active {
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
+
+.stack-mid {
+  background: #fff;
+}
+.stack-mid .stack-who { font-size: 1.15rem; margin-bottom: 0.65rem; }
+.stack-feelix .stack-who, .stack-kin .stack-who { font-size: 1.2rem; margin-bottom: 0.65rem; }
+.stack-pills.eight { gap: 0.4rem 0.55rem; }
+.stack-pills.eight li { font-size: 0.86rem; }
+.stack-pills.eight small { font-size: 0.68rem; }
+.stack-layer { padding: 0.9rem 1.25rem 1rem; }
+.stack-join { padding: 0.22rem 1.25rem; }
 .stack-join svg { display: block; flex-shrink: 0; }
 
 /* Sequence */
@@ -1756,7 +1767,7 @@ body.on-dark .tab.active {
       <div class="slide-body">
         <p class="eyebrow">Arbeidsdeling</p>
         <h1 class="display h-l">Feelix kjører oppå Kin.</h1>
-        <figure class="stack" aria-label="Feelix over Kin">
+        <figure class="stack" aria-label="Feelix over delte tjenester over Kin">
           <div class="stack-layer stack-feelix">
             <p class="stack-who">Feelix</p>
             <ul class="stack-pills">
@@ -1767,7 +1778,27 @@ body.on-dark .tab.active {
             </ul>
           </div>
           <div class="stack-join">
-            <svg width="18" height="22" viewBox="0 0 18 22" fill="none" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 18 22" fill="none" aria-hidden="true">
+              <path d="M9 0 v22" stroke="#e2e2e2"/>
+              <path d="M4 16 L9 21 L14 16" stroke="#272a2a" stroke-width="1.2" fill="none"/>
+            </svg>
+            Delte tjenester
+          </div>
+          <div class="stack-layer stack-mid">
+            <p class="stack-who">Mellomlag</p>
+            <ul class="stack-pills eight">
+              <li>Kalender<small>Timeboken</small></li>
+              <li>Spørreskjema<small>Tom motor</small></li>
+              <li>Meldinger<small>Web og app</small></li>
+              <li>Betaling<small>Pengene inn</small></li>
+              <li>Flyter<small>Forløp</small></li>
+              <li>Bedrifter<small>Avtale og kohort</small></li>
+              <li>Oppfølging<small>Aktiv relasjon</small></li>
+              <li>Grupper<small>Samme kull</small></li>
+            </ul>
+          </div>
+          <div class="stack-join">
+            <svg width="18" height="18" viewBox="0 0 18 22" fill="none" aria-hidden="true">
               <path d="M9 0 v22" stroke="#e2e2e2"/>
               <path d="M4 16 L9 21 L14 16" stroke="#272a2a" stroke-width="1.2" fill="none"/>
             </svg>
@@ -1776,10 +1807,10 @@ body.on-dark .tab.active {
           <div class="stack-layer stack-kin">
             <p class="stack-who">Kin</p>
             <ul class="stack-pills">
-              <li>Sikkerhet<small>Identitet, formål, revisjon</small></li>
+              <li>Identitet<small>Hvem</small></li>
+              <li>Formål<small>På aktiviteten</small></li>
               <li>Journal<small>Føring, ikke score</small></li>
-              <li>Integrasjon<small>Ikke i piloten</small></li>
-              <li>Betaling<small>Når pengene skal inn</small></li>
+              <li>Revisjon<small>Spor</small></li>
             </ul>
           </div>
         </figure>
